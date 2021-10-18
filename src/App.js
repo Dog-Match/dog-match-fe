@@ -12,7 +12,7 @@ import AboutPage from './AboutPage';
 import BreedDetailsPage from './BreedDetailsPage';
 import NavBar from './NavBar';
 import AuthPage from './AuthPage';
-import './App.css';
+import './styles/App.css';
 
 const TOKEN_KEY = 'TOKEN';
 export default class App extends Component {
