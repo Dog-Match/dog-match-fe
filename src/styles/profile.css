@@ -1,0 +1,11 @@
+.profile-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-icon {
+    margin:15px;
+    height: 45px;
+}

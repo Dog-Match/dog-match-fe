@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './styles/profile.css';
 
 export default class ProfilePage extends Component {
   
@@ -17,7 +18,7 @@ export default class ProfilePage extends Component {
     special_consideration: '',
     main_caretaker: '',
     other_pets: '',
-    protective_breed: '',
+    protective_breed: ''
   }
 
   render() {
@@ -26,8 +27,8 @@ export default class ProfilePage extends Component {
 
     return (
       <div className = "profile-header">
-        <h1>Hello, {username}!</h1>
-        <img src="/dogHeart.png" alt="user icon" height="50px"></img>
+        <h1>Hello,&nbsp;{username}!</h1>
+        <img className = "user-icon" src="/dogHeart.png" alt="user icon"></img>
       </div>
     );
   }
