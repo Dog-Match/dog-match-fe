@@ -10,10 +10,10 @@ import ProfilePage from './ProfilePage';
 import ResultsPage from './ResultsPage';
 import AboutPage from './AboutPage';
 import BreedDetailsPage from './BreedDetailsPage';
-import LoginPage from './LoginPage.js';
+import LoginPage from './LoginPage';
 import SignupPage from './SignupPage';
-//import NavBar from './NavBar';
-import './App.css';
+import NavBar from './NavBar';
+import './styles/App.css';
 
 const TOKEN_KEY = 'TOKEN';
 export default class App extends Component {
@@ -35,7 +35,7 @@ export default class App extends Component {
          
           <Router>
             <header>
-              <NavLink exact activeClassName='active-link' to="/">Home</NavLink>
+              <NavLink exact className = 'nav-bar' activeClassName='active-link' to="/">Home</NavLink>
             </header>
             <Switch>
               <Route
