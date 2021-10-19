@@ -15,16 +15,17 @@ export default class SignupPage extends Component {
   }
 
   render() {
+    console.log(this.state, 'this.state');
     return (
       
       <div>
         <form onSubmit={this.handleSubmit}>
           <label>
-                        Email:
+            Email:
             <input value={this.state.email} onChange={(e)=> this.setState({ email: e.target.value })} type = 'email'/> 
           </label>
           <label>
-                Password:
+            Password:
             <input value={this.state.password} onChange={(e)=> this.setState({ password: e.target.value })} type = 'password'/> 
           </label>
           <button>Sign Up</button>
