@@ -1,0 +1,52 @@
+
+.profile-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-icon {
+    margin:15px;
+    height: 45px;
+}
+
+.profile-subhead {
+    font-size:1.2em;
+    text-decoration: underline .5px;
+    text-underline-position: under;
+    font-family: 'Ubuntu Mono', monospace;
+    padding-bottom:5px;
+  }
+
+.profile-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    width:80%;
+    font-size: .75em;
+    font-weight: bold;
+}
+
+label {
+    padding: 5px;
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+input {
+    padding: 5px;
+    margin-left: 15px;
+    font-family: 'Ubuntu Mono', monospace;
+}
+
+select {
+    padding: 5px;
+    margin-left: 15px;
+    font-family: 'Ubuntu Mono', monospace;
+}
