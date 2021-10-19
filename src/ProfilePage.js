@@ -45,12 +45,12 @@ export default class ProfilePage extends Component {
 
             <label>
               What is your name?
-              <input onChange={async(e) => await this.setState({ name: e.target.value })} required />
+              <input value={this.state.user_name} onChange={async(e) => await this.setState({ name: e.target.value })} required />
             </label>
 
             <label>
               What state do you live in?
-              <select onChange={async(e) => await this.setState({ state: e.target.value })}>
+              <select value={this.state.state} onChange={async(e) => await this.setState({ state: e.target.value })}>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
                 <option value="AZ">Arizona</option>
@@ -107,13 +107,89 @@ export default class ProfilePage extends Component {
 
             <label>
               What is your zip code?
-              <input pattern='[0-9]{5}' maxlength="5" required />
+              <input value={this.state.zip_code} maxlength="5" required />
             </label>
 
             <label>
               How much time each day can you spend exercising and training?
-              <input onChange={async(e) => await this.setState({ time_to_devote: e.target.value })} required />
+              <select value={this.state.time_to_devote} onChange={async(e) => await this.setState({ time_to_devote: Number(e.target.value) })} required>
+                <option value ='3'>90 minutes</option>
+                <option value ='2'>60 minutes</option>
+                <option value ='1'>30 minutes</option>
+              </select>
             </label>
+
+            <label>
+              What is your general activity level?
+              <select value={this.state.activity_level} onChange={async(e) => await this.setState({ activity_level: Number(e.target.value) })} required>
+                <option value ='3'>Very Active</option>
+                <option value ='2'>Somewhat Active</option>
+                <option value ='1'>Not Active</option>
+              </select>
+            </label>
+
+            <label>
+              How much time will your dog spend home alone each day?
+              <select value={this.state.time_dog_at_home} onChange={async(e) => await this.setState({ time_dog_at_home: Number(e.target.value) })} required>
+                <option value ='3'>None</option>
+                <option value ='2'>up to 4 hours</option>
+                <option value ='1'>5-8 hours</option>
+              </select>        
+            </label>
+
+            <label>
+              How much experience do you have with raising dogs?
+              <select value={this.state.time_dog_at_home} onChange={async(e) => await this.setState({ time_dog_at_home: Number(e.target.value) })} required>
+                <option value ='3'>None ◦ Beginner</option>
+                <option value ='2'>Intermediate ◦ Have had a dog before</option>
+                <option value ='1'>Pro ◦ Have had several dogs</option>
+              </select>        
+            </label>
+
+            <label>
+              What size is your dwelling?
+              <select value={this.state.dwelling_size} onChange={async(e) => await this.setState({ dwelling_size: Number(e.target.value) })} required>
+                <option value ='1'>Apartment</option>
+                <option value ='2'>Single Family Home</option>
+                <option value ='3'>Estate with Acreage</option>
+              </select>        
+            </label>
+
+            <label>
+              How large is your household?
+              <select value={this.state.household_size} onChange={async(e) => await this.setState({ household_size: Number(e.target.value) })} required>
+                <option value ='3'>Just myself ◦ Very Quiet</option>
+                <option value ='2'>Myself +1 other ◦ Some Activity</option>
+                <option value ='1'>3+ ◦ Lots of coming and going</option>
+              </select>        
+            </label>
+
+            <label>
+              Do you have any children under 10 or plan to have any children in the next 5 years?
+              <select value={this.state.children_under_10} onChange={async(e) => await this.setState({ children_under_10: Number(e.target.value) })} required>
+                <option value ='1'>Yes</option>
+                <option value ='0'>No</option>
+              </select>        
+            </label>
+
+            <label>
+              Does your household include anyone who requires special consideration such as an elderly or disabled family member?
+              <select value={this.state.special_consideration} onChange={async(e) => await this.setState({ special_consideration: Number(e.target.value) })} required>
+                <option value ='1'>Yes</option>
+                <option value ='0'>No</option>
+              </select>        
+            </label>
+
+            <label>
+              Who will be the main caretaker of the pet?
+              <select value={this.state.special_consideration} onChange={async(e) => await this.setState({ special_consideration: Number(e.target.value) })} required>
+                <option value ='2'>Kid(s) over 10</option>
+                <option value ='1'>An Adult (under 60)</option>
+                <option value ='3'>A Senior (60+)</option>
+                <option value ='3'>A person with a disability</option>
+              </select>        
+            </label>
+
           </form>
         </section>
       </div>
