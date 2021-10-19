@@ -34,7 +34,7 @@ export default class App extends Component {
          
           <Router>
             <header>
-              <NavLink exact activeClassName='active-link' to="/">Home</NavLink>
+              <NavLink exact className = 'nav-bar' activeClassName='active-link' to="/">Home</NavLink>
             </header>
             <Switch>
               <Route
