@@ -26,17 +26,15 @@ export async function getProfile(token){
   return response.body;
 }
 
-// Create (update) Profile
-// check .post url
-export async function createProfile(state, token){
+// Update Profile
+export async function updateProfile(state, token){
   const response = await request 
     .put (`${URL}api/profile`)
     .send ({ profile: state })
     .set('Authorization', token);
   return response.body;
-}
 
-//  ^^ what about isLoading?
+}
 
 export async function getFavorites(token) {
   
@@ -45,7 +43,6 @@ export async function getFavorites(token) {
     .set('Authorization', token);
   
   return response.body;
-    
 }
 
 export async function getBreedById(id, token) {
