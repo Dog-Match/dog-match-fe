@@ -10,8 +10,9 @@ import ProfilePage from './ProfilePage';
 import ResultsPage from './ResultsPage';
 import AboutPage from './AboutPage';
 import BreedDetailsPage from './BreedDetailsPage';
-import NavBar from './NavBar';
-import AuthPage from './AuthPage';
+import LoginPage from './LoginPage.js';
+import SignupPage from './SignupPage';
+//import NavBar from './NavBar';
 import './App.css';
 
 const TOKEN_KEY = 'TOKEN';
@@ -41,12 +42,14 @@ export default class App extends Component {
                 path="/"
                 exact
                 render={(routerProps) => this.state.token ? <ProfilePage token = {this.state.token}{...routerProps}/> : <Redirect to = "/auth"/> }/>
-              <Route
-                path="/auth"
+              <Route path="/signup"
                 exact
-                render={(routerProps) => <AuthPage
-                  handleTokenChange={this.handleTokenChange}
-                  {...routerProps}/>}/>
+                render={(routerProps) => this.state.token ? <SignupPage token = {this.state.token}{...routerProps}/> : <Redirect to = "/login"/> }/>
+              <Route path="/login" exact
+                render={routerProps => (
+                  <LoginPage handleTokenChange = {this.handleTokenChange} {...routerProps}/>
+                )}
+              />
               <Route
                 path="/results"
                 exact
