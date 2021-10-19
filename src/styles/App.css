@@ -5,7 +5,14 @@ font-family: 'Ubuntu Mono', monospace; */
 
 html, body {
   font-family: 'Comfortaa', cursive;
-  margin: 20px;
+  margin: 2%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.active-link {
+  /* padding: 10px;
+  background-color: light-grey; */
 }
 
 .nav-bar {
@@ -16,8 +23,13 @@ html, body {
 
 h1 {
   font-family: 'Ubuntu Mono', monospace;
+  font-size: 2em;
 }
 
 a:link {
   text-decoration: none;
+}
+
+input:focus {
+  outline: none;
 }
