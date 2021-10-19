@@ -59,6 +59,19 @@ select {
     justify-content: flex-end;
 }
 
+button:active {
+    box-shadow: -5px 5px 0px 0px rgba(0, 0, 255, .2);
+    background-color: grey;
+    border-radius:  5px;
+    color:white;
+    padding: 10px;
+    width:25%;
+}
+
+button:hover {
+    background-color: lightgrey;
+}
+
 button {
     box-shadow: -5px 5px 0px 0px rgba(0, 0, 255, .2);
     border-radius: 5px;
