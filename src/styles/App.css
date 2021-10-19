@@ -3,6 +3,10 @@
 /* font-family: 'Comfortaa', cursive;
 font-family: 'Ubuntu Mono', monospace; */
 
+body {
+  background-color: rgba(202,232,252, .25);
+}
+
 html, body {
   font-family: 'Comfortaa', cursive;
   margin: 2%;
@@ -19,11 +23,15 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-bottom: 5px;
+  border-bottom: 1px solid;
+  text-transform: uppercase;
 }
 
 h1 {
   font-family: 'Ubuntu Mono', monospace;
   font-size: 2em;
+  text-transform: capitalize;
 }
 
 a:link {

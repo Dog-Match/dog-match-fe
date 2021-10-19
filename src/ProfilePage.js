@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { getProfile, createProfile } from './fetch-utils';
 import './styles/profile.css';
 
 export default class ProfilePage extends Component {
   
   state = {
-    user_name: '',
+    user_name: 'taylor',
     zip_code:'',
     state:'',
     energy_score: 0,
@@ -23,14 +24,28 @@ export default class ProfilePage extends Component {
     protective_breed: ''
   }
 
-  render() {
+  componentDidMount = async () => {
+    const { token } = this.props.token;
+    const profile = await getProfile(token);
+    this.setState({ profile });
+    this.setState({ isLoading: false });
+  };
 
-    const username = this.state.user_name;
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    // Save Profile, Get Fresh Dog Rexxx 
+    createProfile (this.state, this.props.token);
+    this.props.history.push('/ResultsPage');
+  }
+
+  render() {
+    console.log(this.state);
+    console.log(this.props.token);
 
     return (
       <div>
         <header className = "profile-header">
-          <h1>Hello, {username}Taylor!</h1>
+          <h1>Hello, {this.state.user_name}!</h1>
           <img className = "user-icon" src="/dogHeart.png" alt="user icon"/>
         </header>
 
@@ -41,11 +56,10 @@ export default class ProfilePage extends Component {
         <section className = "profile-content">
 
           {/* Quiz Questions */}
-          <form className = "profile-quiz">
-
+          <form className = "profile-quiz" onSubmit={this.handleSubmit}>
             <label>
               What is your name?
-              <input value={this.state.user_name} onChange={async(e) => await this.setState({ name: e.target.value })} required />
+              <input placeholder={this.state.user_name}  onChange={async(e) => await this.setState({ name: e.target.value })} />
             </label>
 
             <label>
@@ -107,7 +121,7 @@ export default class ProfilePage extends Component {
 
             <label>
               What is your zip code?
-              <input value={this.state.zip_code} maxlength="5" required />
+              <input placeholder={this.state.zip_code}  maxLength="5" required onChange={async(e) => await this.setState({ zip_code: e.target.value })} />
             </label>
 
             <label>
@@ -139,10 +153,10 @@ export default class ProfilePage extends Component {
 
             <label>
               How much experience do you have with raising dogs?
-              <select value={this.state.time_dog_at_home} onChange={async(e) => await this.setState({ time_dog_at_home: Number(e.target.value) })} required>
-                <option value ='3'>None ◦ Beginner</option>
-                <option value ='2'>Intermediate ◦ Have had a dog before</option>
-                <option value ='1'>Pro ◦ Have had several dogs</option>
+              <select value={this.state.experience_with_dogs} onChange={async(e) => await this.setState({ experience_with_dogs: Number(e.target.value) })} required>
+                <option value ='3'>Beginner</option>
+                <option value ='2'>Have had a dog before</option>
+                <option value ='1'>Have had several dogs</option>
               </select>        
             </label>
 
@@ -156,11 +170,11 @@ export default class ProfilePage extends Component {
             </label>
 
             <label>
-              How large is your household?
+              How busy your household?
               <select value={this.state.household_size} onChange={async(e) => await this.setState({ household_size: Number(e.target.value) })} required>
-                <option value ='3'>Just myself ◦ Very Quiet</option>
-                <option value ='2'>Myself +1 other ◦ Some Activity</option>
-                <option value ='1'>3+ ◦ Lots of coming and going</option>
+                <option value ='3'>Very Quiet</option>
+                <option value ='2'>Some Activity</option>
+                <option value ='1'>Lots of coming and going</option>
               </select>        
             </label>
 
@@ -182,7 +196,7 @@ export default class ProfilePage extends Component {
 
             <label>
               Who will be the main caretaker of the pet?
-              <select value={this.state.special_consideration} onChange={async(e) => await this.setState({ special_consideration: Number(e.target.value) })} required>
+              <select value={this.state.main_caretaker} onChange={async(e) => await this.setState({ main_caretaker: Number(e.target.value) })} required>
                 <option value ='2'>Kid(s) over 10</option>
                 <option value ='1'>An Adult (under 60)</option>
                 <option value ='3'>A Senior (60+)</option>
@@ -190,6 +204,28 @@ export default class ProfilePage extends Component {
               </select>        
             </label>
 
+            <label>
+              Do you have other pets?
+              <select value={this.state.other_pets} onChange={async(e) => await this.setState({ other_pets: Number(e.target.value) })} required>
+                <option value ='2'>None</option>
+                <option value ='1'>Dog (s)</option>
+                <option value ='3'>Cat (s)</option>
+                <option value ='2'>Other</option>
+              </select>        
+            </label>
+
+            <label>
+              Do you prefer a more protective/guarding breed?
+              <select value={this.state.protective_breed} onChange={async(e) => await this.setState({ protective_breed: Number(e.target.value) })} required>
+                <option value ='2'>Yes</option>
+                <option value ='1'>No</option>
+              </select>        
+            </label>
+
+            <label className = "results-button">
+              <button> Get Results!</button>
+            </label>
+        
           </form>
         </section>
       </div>
