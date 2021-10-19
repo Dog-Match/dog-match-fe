@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { login } from './fetch-utils.js'; 
+
 
 export default class LoginPage extends Component {
     state = {
@@ -19,7 +21,7 @@ export default class LoginPage extends Component {
         <div>
           <form onSubmit={this.handleSubmit}>
             <label>
-                        Email:
+              Email:
               <input value={this.state.email} onChange={(e)=> this.setState({ email: e.target.value })} type = 'email'/> 
             </label>
             <label>
@@ -28,6 +30,8 @@ export default class LoginPage extends Component {
             </label>
             <button> Login </button>
           </form>
+
+          <Link to ="/signup">Sign Up!</Link>
         </div>
       );
     }

@@ -31,25 +31,23 @@ export default class App extends Component {
     }
     render() {
       return (
-        <div>
-         
+        <div>         
           <Router>
             <header>
               <NavLink exact className = 'nav-bar' activeClassName='active-link' to="/">Home</NavLink>
             </header>
+            
             <Switch>
               <Route
                 path="/"
                 exact
-                render={(routerProps) => this.state.token ? <ProfilePage token = {this.state.token}{...routerProps}/> : <Redirect to = "/auth"/> }/>
+                render={(routerProps) => this.state.token ? <ProfilePage token = {this.state.token}{...routerProps}/> : <Redirect to = "/login"/> }/>
               <Route path="/signup"
                 exact
-                render={(routerProps) => this.state.token ? <SignupPage token = {this.state.token}{...routerProps}/> : <Redirect to = "/login"/> }/>
-              <Route path="/login" exact
-                render={routerProps => (
-                  <LoginPage handleTokenChange = {this.handleTokenChange} {...routerProps}/>
-                )}
-              />
+                render={(routerProps) => <SignupPage handleTokenChange = {this.handleTokenChange} {...routerProps}/> }/>
+              <Route path="/login" 
+                exact
+                render={(routerProps) => <LoginPage handleTokenChange = {this.handleTokenChange} {...routerProps}/> }/>
               <Route
                 path="/results"
                 exact
@@ -62,9 +60,7 @@ export default class App extends Component {
                 path="/breed"
                 exact
                 render={(routerProps) => <BreedDetailsPage {...routerProps}/>}/>
-
-            </Switch>
-          
+            </Switch>          
           </Router>
         </div>
       );

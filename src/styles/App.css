@@ -3,6 +3,10 @@
 /* font-family: 'Comfortaa', cursive;
 font-family: 'Ubuntu Mono', monospace; */
 
+body {
+  background-color: rgba(202,232,252, .25);
+}
+
 html, body {
   font-family: 'Comfortaa', cursive;
   margin: 2%;

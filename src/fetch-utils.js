@@ -1,13 +1,12 @@
 import request from 'superagent';
 const URL = 'https://dog-match-be.herokuapp.com/';
-// const URL = 'http://localhost:7890/';
+// const URL = 'localhost:7890/';
 
 // Login
 export async function login(email, password){
   const response = await request 
     .post(`${URL}auth/signin`)
-    .send({ email, password });
-  
+    .send({ email, password });  
   return response.body;
 }
 
@@ -15,8 +14,7 @@ export async function login(email, password){
 export async function signUp(email, password){
   const response = await request 
     .post(`${URL}auth/signup`)
-    .send({ email, password });
-  
+    .send({ email, password });  
   return response.body;
 }
 
