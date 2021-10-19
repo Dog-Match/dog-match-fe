@@ -1,46 +1,45 @@
 import React, { Component } from 'react';
-import { getProfile, createProfile } from './fetch-utils';
+import { getProfile, updateProfile } from './fetch-utils';
 import './styles/profile.css';
 
 export default class ProfilePage extends Component {
   
   state = {
-    user_name: 'taylor',
-    zip_code:'',
-    state:'',
+    user_name: '',
+    zipcode:'',
+    state:'AL',
     energy_score: 0,
     owner_exp_score: 0,
     guard_score: 0,
-    time_to_devote: '',
-    activity_level: '',
-    time_dog_at_home: '',
-    experience_with_dogs: '',
-    dwelling_size: '',
-    household_size: '',
-    children_under_10: '',
-    special_consideration: '',
-    main_caretaker: '',
-    other_pets: '',
-    protective_breed: ''
+    time_to_devote: '3',
+    activity_level: '3',
+    time_dog_at_home: '3',
+    experience_with_dogs: '3',
+    dwelling_size: '1',
+    household_size: '3',
+    children_under_10: '1',
+    special_consideration: '1',
+    main_caretaker: '2',
+    other_pets: '2',
+    protective_breed: '2'
   }
 
   componentDidMount = async () => {
     const { token } = this.props;
-    console.log(token);
     const profile = await getProfile(token);
-    this.setState({ profile });
+    this.setState({ ...profile[0] });
+    console.log(profile, 'profile', this.state);
   };
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    // Save Profile, Get Fresh Dog Rexxx 
-    createProfile (this.state, this.props.token);
+    // Still need to Get Fresh Dog Rexxx 
+    await updateProfile(this.state, this.props.token);
     this.props.history.push('/ResultsPage');
   }
 
   render() {
-    console.log(this.state);
-
+    console.log(this.state, 'state');
     return (
       <div>
         <header className = "profile-header">
@@ -58,7 +57,7 @@ export default class ProfilePage extends Component {
           <form className = "profile-quiz" onSubmit={this.handleSubmit}>
             <label>
               What is your name?
-              <input placeholder={this.state.user_name}  onChange={async(e) => await this.setState({ name: e.target.value })} />
+              <input placeholder={this.state.user_name}  onChange={async(e) => await this.setState({ user_name: e.target.value })} />
             </label>
 
             <label>
@@ -120,7 +119,7 @@ export default class ProfilePage extends Component {
 
             <label>
               What is your zip code?
-              <input placeholder={this.state.zip_code}  maxLength="5" required onChange={async(e) => await this.setState({ zip_code: e.target.value })} />
+              <input placeholder={this.state.zipcode}  maxLength="5" required onChange={async(e) => await this.setState({ zipcode: e.target.value })} />
             </label>
 
             <label>
