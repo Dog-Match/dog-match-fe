@@ -10,7 +10,7 @@ import ProfilePage from './ProfilePage';
 import ResultsPage from './ResultsPage';
 import AboutPage from './AboutPage';
 import BreedDetailsPage from './BreedDetailsPage';
-import LoginPage from './LoginPage.js';
+import LoginPage from './LoginPage';
 import SignupPage from './SignupPage';
 //import NavBar from './NavBar';
 import './App.css';
