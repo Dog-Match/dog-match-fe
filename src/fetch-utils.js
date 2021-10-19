@@ -19,28 +19,21 @@ export async function signUp(email, password){
 }
 
 // Get Profile
-//  Does URL/api work or route to profilePage.js?
 export async function getProfile(token){
-  /*
   const response = await request 
-    .get(`${URL}api`)
+    .get(`${URL}api/profile`)
     .set('Authorization', token);
   return response.body;
-  */
-  return {};
 }
 
 // Create (update) Profile
 // check .post url
 export async function createProfile(state, token){
-  /*
   const response = await request 
-    .post (`${URL}api/`)
-    .send ({ userData: state })
+    .put (`${URL}api/profile`)
+    .send ({ profile: state })
     .set('Authorization', token);
   return response.body;
-  */
-  return {};
 }
 
 //  ^^ what about isLoading?

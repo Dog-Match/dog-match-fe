@@ -25,10 +25,10 @@ export default class ProfilePage extends Component {
   }
 
   componentDidMount = async () => {
-    const { token } = this.props.token;
+    const { token } = this.props;
+    console.log(token);
     const profile = await getProfile(token);
     this.setState({ profile });
-    this.setState({ isLoading: false });
   };
 
   handleSubmit = async (e) => {
@@ -40,7 +40,6 @@ export default class ProfilePage extends Component {
 
   render() {
     console.log(this.state);
-    console.log(this.props.token);
 
     return (
       <div>
