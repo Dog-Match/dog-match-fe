@@ -24,10 +24,11 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 form {
-    width:80%;
     font-size: .75em;
     font-weight: bold;
 }
@@ -43,10 +44,12 @@ input {
     padding: 5px;
     margin-left: 15px;
     font-family: 'Ubuntu Mono', monospace;
+    /* border: 1px dotted; */
 }
 
 select {
     padding: 5px;
     margin-left: 15px;
     font-family: 'Ubuntu Mono', monospace;
+    /* border: 1px dotted; */
 }
