@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { getProfile, createProfile } from './fetch-utils';
 import './styles/profile.css';
 
 export default class ProfilePage extends Component {
@@ -20,21 +21,20 @@ export default class ProfilePage extends Component {
     special_consideration: '',
     main_caretaker: '',
     other_pets: '',
-    protective_breed: '',
-    isLoading: true
+    protective_breed: ''
   }
 
   componentDidMount = async () => {
-    //   const profile = getProfile (this.props.token);
-    //   this.setState = ({ profile });
+    const { token } = this.props;
+    const profile = await getProfile(token);
+    this.setState = ({ profile });
     this.setState({ isLoading: false });
   };
 
   handleSubmit = async (e) => {
     e.preventDefault();
     // Save Profile, Get Fresh Dog Rexxx 
-    // const { token } = this.props;
-    // const profile = await getProfile(token);
+    createProfile (this.state, this.props.token);
     this.props.history.push('/ResultsPage');
   }
 
@@ -221,19 +221,12 @@ export default class ProfilePage extends Component {
               </select>        
             </label>
 
-            <label>
-              <button> GET RESULTS</button>
+            <label className = "results-button">
+              <button> Get Results!</button>
             </label>
         
           </form>
         </section>
-
-        {/* Loading ...  */}
-        {this.state.isLoading ? (
-          <section className="loading">
-            <h2> Loading ... </h2>
-          </section>
-        ) : null}
       </div>
     );
   }
