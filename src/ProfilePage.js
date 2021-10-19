@@ -27,7 +27,7 @@ export default class ProfilePage extends Component {
   componentDidMount = async () => {
     const { token } = this.props.token;
     const profile = await getProfile(token);
-    this.setState = ({ profile });
+    this.setState({ profile });
     this.setState({ isLoading: false });
   };
 
