@@ -33,3 +33,7 @@ a:link {
 input:focus {
   outline: none;
 }
+
+select:focus {
+  outline: none;
+}

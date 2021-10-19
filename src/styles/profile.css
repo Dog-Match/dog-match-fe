@@ -28,11 +28,13 @@
 
 form {
     width:80%;
-    font-size: .85em;
+    font-size: .75em;
+    font-weight: bold;
 }
 
 label {
     padding: 5px;
+    margin: 10px;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
