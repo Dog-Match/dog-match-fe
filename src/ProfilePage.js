@@ -220,8 +220,8 @@ export default class ProfilePage extends Component {
               </select>        
             </label>
 
-            <label className = "results-button">
-              <button> Get Results!</button>
+            <label className = "results-button-container">
+              <button className = 'results-button'> Get Results!</button>
             </label>
         
           </form>

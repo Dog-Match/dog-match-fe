@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { signUp } from './fetch-utils.js';
+import './styles/Login.css';
 
 export default class SignupPage extends Component {
   state = {
@@ -19,17 +20,24 @@ export default class SignupPage extends Component {
     return (
       
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>
+        <header className='login-header'>
+          <h1>Dog Match App Title</h1>
+          <img src='./paw.png' alt="paw logo"/><br/>
+            Sign up for a new account!
+        </header>
+        <section className='login-container'>
+          <form onSubmit={this.handleSubmit} className='login-form'>
+            <label>
             Email:
-            <input value={this.state.email} onChange={(e)=> this.setState({ email: e.target.value })} type = 'email'/> 
-          </label>
-          <label>
+              <input value={this.state.email} onChange={(e)=> this.setState({ email: e.target.value })} type = 'email'/> 
+            </label>
+            <label>
             Password:
-            <input value={this.state.password} onChange={(e)=> this.setState({ password: e.target.value })} type = 'password'/> 
-          </label>
-          <button>Sign Up</button>
-        </form>
+              <input value={this.state.password} onChange={(e)=> this.setState({ password: e.target.value })} type = 'password'/> 
+            </label>
+            <button>Sign Up</button>
+          </form>
+        </section>
       </div>
 
     );
