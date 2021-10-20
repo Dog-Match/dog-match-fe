@@ -35,19 +35,27 @@ export default class BreedCard extends Component {
     const adoptionLink = this.props.adoptionLink;
     return (
       <div className="breed-card">
-        <h3>Breed: {name}</h3>
+        <h3>{name}</h3>
         <img src={imgUrl} alt={'a ' + name} />
         <ul>
-          <li>Weight: {weight}</li>
-          <li>Height: {height}</li>
-          <li>Life Span: {lifeSpan}</li>
-          <li>Temperaments: {temperaments}</li>
+          <section className = "breed-stats">
+            <li>Weight: {weight}</li>
+            <li>Height: {height}</li>
+            <li>Life Span: {lifeSpan}</li>
+          </section>
+
+          <section className = "personality">
+            <span className = "personality-head">Personality Traits:</span>
+            <li>{temperaments}</li>
+          </section>
         </ul>
-        { !this.checkFavorites(name, this.state.favorites) && 
+
+        <section className = "links">
+          <button href={adoptionLink}>Adopt This breed</button>
+          { !this.checkFavorites(name, this.state.favorites) && 
         <button onClick={this.handleFavorite}>Add to Favorites</button>
-        }
-        
-        <a href={adoptionLink}>Adopt This breed</a>
+          }
+        </section>
       </div>
     );
   }

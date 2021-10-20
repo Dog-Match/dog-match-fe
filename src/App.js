@@ -112,7 +112,7 @@ export default class App extends Component {
               }
             />
             <Route
-              path="/aboutus"
+              path="/aboutpage"
               exact
               render={(routerProps) => <AboutPage {...routerProps} />}
             />
