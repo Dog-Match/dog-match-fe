@@ -50,3 +50,11 @@ export async function getBreedById(id, token) {
 
   return response;
 }
+
+export async function getRecommendations(token) {
+  const response = await request
+    .get(`${URL}api/recommendations`)
+    .set('Authorization', token);
+
+  return response.body;
+}
