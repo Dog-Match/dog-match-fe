@@ -53,6 +53,7 @@ export default class ProfilePage extends Component {
 	      <section className="profile-content">
 	        {/* Quiz Questions */}
 	        <form className="profile-quiz" onSubmit={this.handleSubmit}>
+
 	          <label>
 							What is your name?
 	            <input
@@ -287,11 +288,12 @@ export default class ProfilePage extends Component {
 	              <option value="1">No</option>
 	            </select>
 	          </label>
-	        </form>
-
-	        <div className="results-button-container">
+	          <div className="results-button-container">
 	          <button className="results-button"> Get Results!</button>
 	        </div>
+	        </form>
+
+
 	      </section>
 	    </div>
 	  );
