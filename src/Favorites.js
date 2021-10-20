@@ -22,16 +22,6 @@ export default class Favorites extends Component {
         <div className='favorites-page'>
           {this.state.favorites.map(favorite => <BreedCard {...favorite} key={favorite.id} token={this.props.token}/>)}
         </div>
-        /*<div className='all-favorites'>
-          {this.state.favorites.map(item =>
-            <div className='favorite' key={item.name}>
-              <img src={item.imgUrl} alt=''/>
-              <p>Name: {item.name}</p>
-              <p>Bred for: {item.bred_for}</p>
-              <p>Life Span: {item.life_span}</p>
-              <p>Temperament: {item.temperament}</p>      
-            </div>)}
-        </div>*/
       );
     }
 }

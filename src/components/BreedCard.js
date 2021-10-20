@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getFavorites, postFavorite } from '../fetch-utils';
+import { deleteFavorite, getFavorites, postFavorite } from '../fetch-utils';
 import '../styles/BreedCard.css';
 
 export default class BreedCard extends Component {
@@ -14,11 +14,16 @@ export default class BreedCard extends Component {
     await postFavorite(this.props.name, this.props.token);
     const favorites = await getFavorites(this.props.token);
     this.setState({ favorites });
+    alert('This breed has been added to your favorites');
     console.log(this.state.favorites);
   }
 
   handleDelete = async () => {
-    
+    await deleteFavorite(this.props.name, this.props.token);
+    const favorites = await getFavorites(this.props.token);
+    this.setState({ favorites });
+    alert('This breed has been removed from your favorites');
+    console.log(this.state.favorites);
   }
 
   checkFavorites = (name, favoritesArr) => {
@@ -33,6 +38,7 @@ export default class BreedCard extends Component {
     const temperaments = this.props.temperament;
     const imgUrl = this.props.imgUrl;
     const adoptionLink = this.props.adoptionLink;
+    
     return (
       <div className="breed-card">
         <h3>{name}</h3>
@@ -54,6 +60,9 @@ export default class BreedCard extends Component {
           <button href={adoptionLink}>Adopt This breed</button>
           { !this.checkFavorites(name, this.state.favorites) && 
         <button onClick={this.handleFavorite}>Add to Favorites</button>
+          }
+          { this.checkFavorites(name, this.state.favorites) && 
+          <button onClick={this.handleDelete}>Remove from Favorites</button>
           }
         </section>
       </div>
