@@ -1,42 +1,75 @@
 import React, { Component } from 'react';
+//import { Link } from 'react-router-dom';
 import dog from './img/dogHeart.png';
-import './styles/aboutpage.css';
-
+import gitcat from './img/github2.png';
+import li from './img/linkedin6.png';
+import './styles/Aboutpage.css';
+ 
 export default class AboutPage extends Component {
-
   render() {
     return (
       <div className = "large-container">
         <div className = "medium-container">
-          <h2>Taylor Williams</h2>
-          <img src={ dog } alt="Dog" width="40%"></img>
-          <h3>Favorite Dog Breed:</h3>
-          <h3>Location: Portland, OR</h3>
-          <h3>Bio:</h3>
+          <img className="dog" src={ dog } alt="Dog" width="12%"/>
+          <h3>Taylor Williams</h3>
+          <span>Favorite Breed: Husky</span>
+          <span>Location: Portland, OR</span>
+          <h4>Contact:</h4>
+          <section className ="icon-container" > 
+            <a href="https://github.com/taylor-c-williams">
+              <img src={ gitcat } alt="Github" width="15%"/>
+            </a>
+            <a href="https://www.linkedin.com/in/taylor-c-williams/">
+              <img src={ li } alt="LinkedIn" width="15%"/>
+            </a>
+          </section>
         </div>    
         <div className = "medium-container">
-          <h2>Dylan Floyd</h2>
-          <img src={ dog } alt="Dog" width="40%"></img>
-          <h3>Favorite Dog Breed:</h3>
-          <h3>Location: Vancouver, WA</h3>
-          <h3>Bio:</h3>
+          <img className="dog" src={ dog } alt="Dog" width="12%"/>
+          <h3>Dylan Floyd</h3>
+          <span>Favorite Breed: Husky</span>
+          <span>Location: Vancouver, WA</span>
+          <h4>Contact:</h4>
+          <section className ="icon-container" > 
+            <a href="https://github.com/Dylan-Floyd">
+              <img src={ gitcat } alt="Github" width="15%"/>
+            </a>
+            <a href="https://www.linkedin.com/in/dylan-c-floyd/">
+              <img src={ li } alt="Linkedin" width="15%"/>
+            </a>
+          </section>
         </div>
         <div className = "medium-container">
-          <h2>Amit Sheth</h2>
-          <img src={ dog } alt="Dog" width="40%"></img>
-          <h3>Favorite Dog Breed:</h3>
-          <h3>Location: Houston, TX</h3>
-          <h3>Bio:</h3>
+          <img className="dog-icon" src={ dog } alt="Dog" width="12%"/>
+          <h3>Amit Sheth</h3>
+          <span>Favorite Breed: Bernese Mountain Dog</span>
+          <span>Location: Houston, TX</span>
+          <h4>Contact:</h4>
+          <section className ="icon-container" >
+            <a href="https://github.com/AmitSheth9">
+              <img src={ gitcat } alt="Github" width="15%"/>
+            </a>
+            <a href="https://www.linkedin.com/in/amitsheth9/">
+              <img src={ li } alt="Linkedin" width="15%"/>
+            </a>
+          </section>
         </div>
         <div className = "medium-container">
-          <h2>Estefani Baughman</h2>
-          <img src={ dog } alt="Dog" width="40%"/>
-          <h3>Favorite Dog Breed: unique mixed breed</h3>
-          <h3>Location: DFW Metroplex, TX</h3>
-          <h3>Bio:</h3>
+          <img className="dog-icon" src={ dog } alt="Dog" width="12%"/>
+          <h3>Estefani Baughman</h3>
+          <span>Favorite Breed: Mixed Breed</span>
+          <span>Location: DFW Metroplex, TX</span>
+          <h4>Contact:</h4>
+          <section className ="icon-container" > 
+            <a href="https://github.com/HonduranCoder">
+              <img src={ gitcat } alt="Github" width="15%"/>
+            </a>
+            <a href="https://www.linkedin.com/in/estefani-baughman/">
+              <img src={ li } alt="Linkedin" width="15%"/>
+            </a>
+          </section>
         </div>
       </div>
     );
   }
 }
-
