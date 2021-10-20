@@ -21,6 +21,7 @@ export async function signIn(email, password) {
     badCreds: false,
     noCreds: false,
     error: false,
+    emailTaken: false,
     token: undefined
   };
   let response = null;

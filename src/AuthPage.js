@@ -36,12 +36,16 @@ export default class LoginPage extends Component {
       const { email, password, validEmail } = this.state;
       if (!validEmail) return;
       const result = await signUp(email, password);
-      console.log(result);
       this.handleAuthResult(result);
     }
   
     clearErrorState = () => {
-      this.setState({ error: false, badCreds: false });
+      this.setState({
+        badCreds: false,
+        noCreds: false,
+        error: false,
+        emailTaken: false
+      });
     }
   
     handleEmailChange = (e) => {
@@ -64,12 +68,12 @@ export default class LoginPage extends Component {
         noCreds,
         emailTaken
       } = this.state;
-      let string = '';
-      if(noCreds) string = 'Please enter your email and password';
-      if(badCreds) string = 'Invalid Credentials';
+      let string = '\u00a0\u00a0'; //makes react render white space
+      if(noCreds) string = 'Please Enter Your Email and Password';
+      if(badCreds) string = 'Incorrect Email or Password';
       if(error) string = 'Network Error';
       if(!validEmail) string = 'Invalid Email';
-      if(emailTaken) string = 'Email in use, please log in';
+      if(emailTaken) string = 'Email In Use, Please Log In';
       return string;
     }
 
@@ -87,7 +91,7 @@ export default class LoginPage extends Component {
             hingamajig the doggo matcher
           </header>
           <section className='login-container'>
-            <span>Please Sign In to Continue</span>
+            <span>Please Sign Up or Sign In to Continue</span>
             <div className="auth-error-div">
               <span>{errorString}</span>
             </div>
@@ -96,7 +100,7 @@ export default class LoginPage extends Component {
               <input value={email} onChange={this.handleEmailChange} type='email'/> 
             </label>
             <label>
-                Password:
+              Password:
               <input value={password} onChange={this.handlePasswordChange} type='password'/> 
             </label>
             <span className='button-container'>
