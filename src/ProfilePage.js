@@ -34,7 +34,7 @@ export default class ProfilePage extends Component {
 	  e.preventDefault();
 	  // Still need to Get Fresh Dog Rexxx
 	  await updateProfile(this.state, this.props.token);
-	  this.props.history.push('/ResultsPage');
+	  this.props.history.push('/results');
 	};
 
 	render() {

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import dog from './styles/dogHeart.png';
 import './styles/aboutpage.css';
- 
+
 export default class AboutPage extends Component {
-  render() {
-  
+  render() {  
     return (
       <div className = "large-container">
         <div className = "medium-container">
