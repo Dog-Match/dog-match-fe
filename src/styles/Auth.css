@@ -1,0 +1,76 @@
+.login-header h1 {
+  font-size: 2.5em;
+  margin: .5em;
+}
+
+.login-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-header img {
+  width: 20%;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  margin: 50px auto;
+  background-color: white;
+  padding: 10px 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: -5px 5px 0px 0px rgba(0, 0, 255, .2);
+}
+
+.login-container label {
+  padding: 5px;
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 75%;
+}
+
+.login-container input {
+  padding: 5px;
+  margin-left: 15px;
+  font-family: 'Ubuntu Mono', monospace;
+  /* border: 1px dotted; */
+}
+
+.input-divv {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  column-gap: 5px;
+}
+
+.auth-div {}
+
+.auth-error-div {
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: rgb(244, 67, 54)
+}
+
+.auth-error-div>span {
+  margin: 5px 0px;
+}
+
+.auth-form {
+  display: grid;
+  grid-template-rows: 1fr 1fr .5fr;
+  row-gap: 10px;
+}
+
+.button-container > button {
+  margin: 5px;
+}
