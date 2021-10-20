@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { login } from './fetch-utils.js'; 
+import foodBowl from './img/dog-food.png';
 import './styles/Login.css';
 
 
@@ -22,7 +23,7 @@ export default class LoginPage extends Component {
         <div>
           <header className='login-header'>
             <h1>Dog Match App Title</h1>
-            <img src='./dog-food.png' alt="paw logo"/><br/>
+            <img src={ foodBowl } alt="paw logo"/><br/>
             hingamajig the doggo matcher
           </header>
           <section className='login-container'>

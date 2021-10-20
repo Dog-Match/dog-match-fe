@@ -10,6 +10,7 @@ export default class ResultsPage extends Component {
     breeds: []
   }
 
+  
   componentDidMount = async () => {
     const breeds = await getRecommendations(this.props.token);
     this.setState({ breeds, loading: false });
