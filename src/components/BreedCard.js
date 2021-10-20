@@ -1,7 +1,29 @@
 import React, { Component } from 'react';
+import { getFavorites, postFavorite } from '../fetch-utils';
 import '../styles/BreedCard.css';
 
 export default class BreedCard extends Component {
+  state = {
+    favorites: []
+  }
+  componentDidMount = async () => {
+    const favorites = await getFavorites(this.props.token);
+    this.setState({ favorites });
+  }
+  handleFavorite = async () => {
+    await postFavorite(this.props.name, this.props.token);
+    const favorites = await getFavorites(this.props.token);
+    this.setState({ favorites });
+    console.log(this.state.favorites);
+  }
+
+  handleDelete = async () => {
+    
+  }
+
+  checkFavorites = (name, favoritesArr) => {
+    return favoritesArr.find(favorite => favorite.name === name);
+  }
 
   render() {
     const name = this.props.name;
@@ -30,6 +52,9 @@ export default class BreedCard extends Component {
 
         <section className = "links">
           <button href={adoptionLink}>Adopt This breed</button>
+          { !this.checkFavorites(name, this.state.favorites) && 
+        <button onClick={this.handleFavorite}>Add to Favorites</button>
+          }
         </section>
       </div>
     );

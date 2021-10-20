@@ -11,9 +11,9 @@ export default class UserSearch extends Component {
         
     }
 
-    handleSubmit = async () => {
+    /* handleSubmit = async () => {
         const results = await searchBreeds(this.state.query, )
-    }
+    }*/
     render() {
       
 

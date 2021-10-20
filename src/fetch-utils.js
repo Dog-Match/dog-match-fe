@@ -1,6 +1,6 @@
 import request from 'superagent';
-//const URL = 'https://dog-match-be.herokuapp.com/';
-const URL = 'http://localhost:7890/';
+const URL = 'https://dog-match-be.herokuapp.com/';
+//const URL = 'http://localhost:7890/';
 
 // Login
 export async function login(email, password) {
@@ -88,11 +88,12 @@ export async function getRecommendations(token) {
   }
 }
 
-export async function postFavorite(breed, token) {
+export async function postFavorite(breedName, token) {
   const response = await request
     .post(`${URL}api/favorites`)
     .set('Authorization', token)
-    .send(breed);
+    .send({ breed_name: breedName });;
 
   return response;
 }
+
