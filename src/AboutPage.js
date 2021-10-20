@@ -4,7 +4,6 @@ import './styles/aboutpage.css';
  
 export default class AboutPage extends Component {
  render() {
-  
    return (
      <div className = "large-container">
        <div className = "medium-container">
