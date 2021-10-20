@@ -1,13 +1,63 @@
 .breed-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background-color: white;
     border: 1px solid black;
     border-radius: 10px;
     margin: 10px;
-    padding: 10px;
-    max-width: 200px;
+    padding: 15px;
+    width: 325px;
+    height: 460px;
     box-shadow: -5px 5px 0px 0px rgba(0, 0, 255, .2);
 }
 
 .breed-card > img {
-    width: 180px;
+    height: 150px;
+    border-radius: 5px;
+    box-shadow: -5px 5px 0px 0px rgba(0, 0, 255, .2);
+}
+
+h3 {
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 1.5em;
+}
+
+
+ul  {
+    list-style: none;
+    list-style-position: outside;
+    font-size: .85em;
+    line-height: 1.5em;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.breed-stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.85em;
+    font-size: 1.1em;
+    font-family: 'Ubuntu Mono', monospace;
+    padding-bottom: 10px;
+}
+
+.personality {
+    padding-bottom: 5px;
+    height:85px;
+}
+
+.personality-head {
+    margin: 0;
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 1.2em;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
