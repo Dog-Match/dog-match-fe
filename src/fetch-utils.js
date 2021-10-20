@@ -3,60 +3,89 @@ import request from 'superagent';
 const URL = 'http://localhost:7890/';
 
 // Login
-export async function login(email, password){
-  const response = await request 
+export async function login(email, password) {
+  const response = await request
     .post(`${URL}auth/signin`)
-    .send({ email, password });  
+    .send({ email, password });
   return response.body;
 }
 
 // Sign Up
-export async function signUp(email, password){
-  const response = await request 
+export async function signUp(email, password) {
+  const response = await request
     .post(`${URL}auth/signup`)
-    .send({ email, password });  
+    .send({ email, password });
   return response.body;
 }
 
 // Get Profile
-export async function getProfile(token){
-  const response = await request 
+export async function getProfile(token) {
+  const response = await request
     .get(`${URL}api/profile`)
     .set('Authorization', token);
   return response.body;
 }
 
 // Update Profile
-export async function updateProfile(state, token){
-  const response = await request 
-    .put (`${URL}api/profile`)
-    .send ({ profile: state })
+export async function updateProfile(state, token) {
+  const response = await request
+    .put(`${URL}api/profile`)
+    .send({ profile: state })
     .set('Authorization', token);
   return response.body;
 }
 
 export async function getFavorites(token) {
-  
-  const response = await request
-    .get(`${URL}api/favorites`)
-    .set('Authorization', token);  
-  return response.body;
+  try {
+    const response = await request
+      .get(`${URL}api/favorites`)
+      .set('Authorization', token);
+    return response.body;
+  } catch (e) {
+    if (e.response.body &&
+      e.response.body.error &&
+      e.response.body.error === 'fill out profile first') {
+      throw new Error('fill out profile first');
+    } else {
+      console.log(e);
+    }
+  }
 }
 
 export async function getBreedByName(breed, token) {
-  const response = await request
-    .get(`${URL}api/breed-details/${breed}`)
-    .set('Authorization', token);
+  try {
+    const response = await request
+      .get(`${URL}api/breed-details/${breed}`)
+      .set('Authorization', token);
 
-  return response;
+    return response;
+  } catch (e) {
+    if (e.response.body &&
+      e.response.body.error &&
+      e.response.body.error === 'fill out profile first') {
+      throw new Error('fill out profile first');
+    } else {
+      console.log(e);
+    }
+  }
 }
 
 export async function getRecommendations(token) {
-  const response = await request
-    .get(`${URL}api/recommendations`)
-    .set('Authorization', token);
+  try {
+    const response = await request
+      .get(`${URL}api/recommendations`)
+      .set('Authorization', token);
 
-  return response.body;
+    return response.body;
+  } catch (e) {
+    if (e.response.body &&
+      e.response.body.error &&
+      e.response.body.error === 'fill out profile first') {
+      throw new Error('fill out profile first');
+    } else {
+      console.log(e);
+    }
+  }
 }
 
 export async function postFavorite(breed, token) {

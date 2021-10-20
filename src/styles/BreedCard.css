@@ -6,3 +6,7 @@
     padding: 10px;
     max-width: 200px;
 }
+
+.breed-card > img {
+    width: 180px;
+}
