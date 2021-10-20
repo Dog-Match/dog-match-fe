@@ -71,7 +71,7 @@ export default class App extends Component {
                 exact
                 render={(routerProps) => <AboutPage {...routerProps}/>}/>
               <Route 
-                path="/breed"
+                path="/breed/:breed_name"
                 exact
                 render={(routerProps) => <BreedDetailsPage {...routerProps}/>}/>
             </Switch>          

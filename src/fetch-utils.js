@@ -43,9 +43,9 @@ export async function getFavorites(token) {
   return response.body;
 }
 
-export async function getBreedById(id, token) {
+export async function getBreedByName(breed, token) {
   const response = await request
-    .get(`${URL}api/breed-details/${id}`)
+    .get(`${URL}api/breed-details/${breed}`)
     .set('Authorization', token);
 
   return response;
@@ -57,4 +57,13 @@ export async function getRecommendations(token) {
     .set('Authorization', token);
 
   return response.body;
+}
+
+export async function postFavorite(breed, token) {
+  const response = await request
+    .post(`${URL}api/favorites`)
+    .set('Authorization', token)
+    .send(breed);
+
+  return response;
 }
