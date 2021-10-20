@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { signUp } from './fetch-utils.js';
 import './styles/Login.css';
+import collar from './img/dog-collar.png';
 
 export default class SignupPage extends Component {
   state = {
@@ -22,7 +23,7 @@ export default class SignupPage extends Component {
       <div>
         <header className='login-header'>
           <h1>Dog Match App Title</h1>
-          <img src='./dog-collar.png' alt="paw logo"/><br/>
+          <img src= { collar } alt="paw logo"/><br/>
             Sign up for a new account!
         </header>
         <section className='login-container'>
