@@ -15,7 +15,7 @@ html, body {
  background-color: rgba(202,232,252,1);
 }
  
-.active-link {
+{/*}.active-link {
  /* padding: 10px;
  background-color: light-grey; */
 }
@@ -49,6 +49,7 @@ select:focus {
  
 .large-container{
    display: grid;
+   text-align: center;
    grid-template-columns: 1fr 1fr;
    grid-gap: 1em;
    margin-top: 5%;
@@ -56,8 +57,11 @@ select:focus {
  
 .medium-container{
    display: grid;
-   grid-template-columns: 1fr 1fr;
+   grid-template-rows: 1fr 1fr;
    border-radius: 25px;
+   text-align:center;
    border: 2px solid black;
    padding: 5%;
+   background-color: white;
+   box-shadow: -5px 5px 0px 0px rgba(0, 0, 255, .2);
 }
