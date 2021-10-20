@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { login } from './fetch-utils.js'; 
+import './styles/Login.css';
 
 
 export default class LoginPage extends Component {
@@ -19,19 +20,27 @@ export default class LoginPage extends Component {
     render() {
       return (
         <div>
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              Email:
-              <input value={this.state.email} onChange={(e)=> this.setState({ email: e.target.value })} type = 'email'/> 
-            </label>
-            <label>
-                Password:
-              <input value={this.state.password} onChange={(e)=> this.setState({ password: e.target.value })} type = 'password'/> 
-            </label>
-            <button> Login </button>
-          </form>
-
-          <Link to ="/signup">Sign Up!</Link>
+          <header className='login-header'>
+            <h1>Dog Match App Title</h1>
+            <img src='./paw.png' alt="paw logo"/><br/>
+            hingamajig the doggo matcher
+          </header>
+          <section className='login-container'>
+            <form onSubmit={this.handleSubmit} className='login-form'>
+              <label>
+                Email:
+                <input value={this.state.email} onChange={(e)=> this.setState({ email: e.target.value })} type = 'email'/> 
+              </label>
+              <label>
+                  Password:
+                <input value={this.state.password} onChange={(e)=> this.setState({ password: e.target.value })} type = 'password'/> 
+              </label>
+              <span className='button-container'>
+                <Link to ="/signup"><button>New user? Sign up!</button></Link>
+                <button className='login-button'> Login </button>
+              </span>           
+            </form>
+          </section>
         </div>
       );
     }

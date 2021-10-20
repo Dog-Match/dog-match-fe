@@ -1,0 +1,41 @@
+.login-header h1{
+    font-size: 2.5em;
+    margin:.5em;
+  }
+  
+.login-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+   
+.login-header img {
+    width: 20%;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form {
+    display: block;
+    margin-top: 5%;
+    width:60%;
+}
+  
+.login-form label {
+    padding: 5px;
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+  
+.login-form input {
+    padding: 5px;
+    margin-left: 15px;
+    font-family: 'Ubuntu Mono', monospace;
+    /* border: 1px dotted; */
+}
