@@ -1,6 +1,6 @@
 import request from 'superagent';
-//const URL = 'https://dog-match-be.herokuapp.com/';
-const URL = 'http://localhost:7890/';
+const URL = 'https://dog-match-be.herokuapp.com/';
+//const URL = 'http://localhost:7890/';
 
 // Login
 export async function login(email, password) {
