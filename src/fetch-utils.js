@@ -150,8 +150,15 @@ export async function postFavorite(breedName, token) {
   const response = await request
     .post(`${URL}api/favorites`)
     .set('Authorization', token)
-    .send({ breed_name: breedName });;
+    .send({ breed_name: breedName });
 
   return response;
 }
 
+export async function deleteFavorite(breedName, token) {
+  const response = await request
+    .delete(`${URL}api/favorites/${breedName}`)
+    .set('Authorization', token);
+
+  return response;
+}
