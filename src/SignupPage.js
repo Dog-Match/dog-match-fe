@@ -22,7 +22,7 @@ export default class SignupPage extends Component {
       <div>
         <header className='login-header'>
           <h1>Dog Match App Title</h1>
-          <img src='./paw.png' alt="paw logo"/><br/>
+          <img src='./dog-collar.png' alt="paw logo"/><br/>
             Sign up for a new account!
         </header>
         <section className='login-container'>

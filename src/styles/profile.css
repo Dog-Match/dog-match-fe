@@ -53,9 +53,21 @@
     /* border: 1px dotted; */
 }
 
+
+.results-button {
+    box-shadow: -5px 5px 0px 0px rgba(0, 0, 255, .2);
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: white;
+    font-family: 'Ubuntu Mono', monospace;
+    padding: 10px;
+    letter-spacing: .1em;
+}
+
 .results-button-container {
     display: flex;
     justify-content: flex-end;
+    width: 95%;
 }
 
 .results-button:active {
@@ -69,16 +81,4 @@
 
 .results-button:hover {
     background-color: lightgrey;
-}
-
-.results-button {
-    box-shadow: -5px 5px 0px 0px rgba(0, 0, 255, .2);
-    border-radius: 5px;
-    border: 1px solid black;
-    background-color: white;
-    font-family: 'Ubuntu Mono', monospace;
-    padding: 10px;
-    width:25%;
-    font-size:1.35em;
-    letter-spacing: .1em;
 }
