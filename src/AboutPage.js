@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import dog from './public/dogHeart.png';
+import dog from './img/dogHeart.png';
 import './styles/aboutpage.css';
  
 export default class AboutPage extends Component {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { getProfile, updateProfile } from './fetch-utils';
-import icon from './public/dogHeart.png';
+import icon from './img/dogHeart.png';
 import './styles/Profile.css';
 
 export default class ProfilePage extends Component {
