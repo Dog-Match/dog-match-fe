@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import dog from './styles/dogHeart.png';
-import git from './styles/github.png';
-import { Link } from 'react-router-dom';
+import dog from './img/dogHeart.png';
+import './styles/aboutpage.css';
+
 
 import './styles/Aboutpage.css';
  
