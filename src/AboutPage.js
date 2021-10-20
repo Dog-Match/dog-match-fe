@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import dog from './styles/dogHeart.png';
+import dog from './public/dogHeart.png';
 import './styles/aboutpage.css';
 
 export default class AboutPage extends Component {
-  render() {  
+
+  render() {
     return (
       <div className = "large-container">
         <div className = "medium-container">
@@ -29,7 +30,7 @@ export default class AboutPage extends Component {
         </div>
         <div className = "medium-container">
           <h2>Estefani Baughman</h2>
-          <img src={ dog } alt="Dog" width="40%"></img>
+          <img src={ dog } alt="Dog" width="40%"/>
           <h3>Favorite Dog Breed: unique mixed breed</h3>
           <h3>Location: DFW Metroplex, TX</h3>
           <h3>Bio:</h3>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getProfile, updateProfile } from './fetch-utils';
+import icon from './public/dogHeart.png';
 import './styles/Profile.css';
 
 export default class ProfilePage extends Component {
@@ -40,10 +41,10 @@ export default class ProfilePage extends Component {
 	render() {
 	  console.log(this.state, 'state');
 	  return (
-	    <div>
+	    <div className='content'>
 	      <header className="profile-header">
 	        <h1>Hello, {this.state.user_name}!</h1>
-	        <img className="user-icon" src="/dogHeart.png" alt="user icon" />
+	        <img className="user-icon" src={ icon } alt="user icon" />
 	      </header>
 
 	      <div className="profile-subhead">
@@ -55,7 +56,7 @@ export default class ProfilePage extends Component {
 	        <form className="profile-quiz" onSubmit={this.handleSubmit}>
 
 	          <label>
-							What is your name?
+			 	What is your name?
 	            <input
 	              placeholder={this.state.user_name}
 	              required 
@@ -126,7 +127,7 @@ export default class ProfilePage extends Component {
 	          </label>
 
 	          <label>
-							What is your zip code?
+				What is your zip code?
 	            <input
 	              placeholder={this.state.zipcode}
 	              maxLength="5"
@@ -136,7 +137,7 @@ export default class ProfilePage extends Component {
 	          </label>
 
 	          <label>
-							How much time each day can you spend exercising and training?
+				How much time each day can you spend exercising and training?
 	            <select
 	              value={this.state.time_to_devote}
 	              required
@@ -150,7 +151,7 @@ export default class ProfilePage extends Component {
 	          </label>
 
 	          <label>
-							What is your general activity level?
+				What is your general activity level?
 	            <select
 	              value={this.state.activity_level}
 	              required
@@ -164,7 +165,7 @@ export default class ProfilePage extends Component {
 	          </label>
 
 	          <label>
-							How much time will your dog spend home alone each day?
+				How much time will your dog spend home alone each day?
 	            <select
 	              value={this.state.time_dog_at_home}
 	              required
@@ -178,7 +179,7 @@ export default class ProfilePage extends Component {
 	          </label>
 
 	          <label>
-							How much experience do you have with raising dogs?
+				How much experience do you have with raising dogs?
 	            <select
 	              value={this.state.experience_with_dogs}
 	              required
@@ -192,7 +193,7 @@ export default class ProfilePage extends Component {
 	          </label>
 
 	          <label>
-							What size is your dwelling?
+				What size is your dwelling?
 	            <select
 	              value={this.state.dwelling_size}
 	              required
@@ -205,7 +206,7 @@ export default class ProfilePage extends Component {
 	          </label>
 
 	          <label>
-							How busy your household?
+				How busy your household?
 	            <select
 	              value={this.state.household_size}
 	              required
@@ -219,8 +220,7 @@ export default class ProfilePage extends Component {
 	          </label>
 
 	          <label>
-							Do you have any children under 10 or plan to have any children in
-							the next 5 years?
+				Do you have any children under 10 or plan to have any children in the next 5 years?
 	            <select
 	              value={this.state.children_under_10}
 	              required
@@ -233,8 +233,7 @@ export default class ProfilePage extends Component {
 	          </label>
 
 	          <label>
-							Does your household include anyone who requires special
-							consideration such as an elderly or disabled family member?
+				Does your household include anyone who requires special	consideration such as an elderly or disabled family member?
 	            <select
 	              value={this.state.special_consideration}
 	              required
@@ -247,7 +246,7 @@ export default class ProfilePage extends Component {
 	          </label>
 
 	          <label>
-							Who will be the main caretaker of the pet?
+				Who will be the main caretaker of the pet?
 	            <select
 	              value={this.state.main_caretaker}
 	              required
@@ -262,7 +261,7 @@ export default class ProfilePage extends Component {
 	          </label>
 
 	          <label>
-							Do you have other pets?
+				Do you have other pets?
 	            <select
 	              value={this.state.other_pets}
 	              required
@@ -277,7 +276,7 @@ export default class ProfilePage extends Component {
 	          </label>
 
 	          <label>
-							Do you prefer a more protective/guarding breed?
+				Do you prefer a more protective/guarding breed?
 	            <select
 	              value={this.state.protective_breed}
 	              required
@@ -292,7 +291,6 @@ export default class ProfilePage extends Component {
 	          <button className="results-button"> Get Results!</button>
 	        </div>
 	        </form>
-
 
 	      </section>
 	    </div>
