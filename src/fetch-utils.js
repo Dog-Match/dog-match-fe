@@ -2,6 +2,62 @@ import request from 'superagent';
 const URL = 'https://dog-match-be.herokuapp.com/';
 //const URL = 'http://localhost:7890/';
 
+
+function evaluateAuthError(errorMessage, result) {
+  if (errorMessage === 'email or password incorrect') {
+    result.badCreds = true;
+  } else if (errorMessage === 'email and password required') {
+    result.noCreds = true;
+  } else if (errorMessage === 'email already exists') {
+    result.emailTaken = true;
+  } else {
+    result.error = true;
+  }
+  return result;
+}
+
+export async function signIn(email, password) {
+  let result = {
+    badCreds: false,
+    noCreds: false,
+    error: false,
+    emailTaken: false,
+    token: undefined
+  };
+  let response = null;
+  try {
+    response = await request
+      .post(`${URL}auth/signin`)
+      .send({ email, password });
+    result.token = response.body.token;
+  } catch (e) {
+    const errorMessage = e.response.body.error;
+    result = evaluateAuthError(errorMessage, result);
+  }
+  return result;
+}
+
+export async function signUp(email, password) {
+  let result = {
+    badCreds: false,
+    noCreds: false,
+    error: false,
+    token: undefined
+  };
+  let response = null;
+  try {
+    response = await request
+      .post(`${URL}auth/signup`)
+      .send({ email, password });
+    result.token = response.body.token;
+  } catch (e) {
+    const errorMessage = e.response.body.error;
+    result = evaluateAuthError(errorMessage, result);
+  }
+  return result;
+}
+
+/*
 // Login
 export async function login(email, password) {
   const response = await request
@@ -17,6 +73,8 @@ export async function signUp(email, password) {
     .send({ email, password });
   return response.body;
 }
+
+*/
 
 // Get Profile
 export async function getProfile(token) {

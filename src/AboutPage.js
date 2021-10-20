@@ -27,7 +27,7 @@ export default class AboutPage extends Component {
         <div className = "medium-container">
           <img className="dog" src={ dog } alt="Dog" width="12%"/>
           <h3>Dylan Floyd</h3>
-          <span>Favorite Breed: Husky</span>
+          <span>Favorite Breed: Boxer</span>
           <span>Location: Vancouver, WA</span>
           <h4>Contact:</h4>
           <section className ="icon-container" > 

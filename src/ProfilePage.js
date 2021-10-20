@@ -62,7 +62,7 @@ export default class ProfilePage extends Component {
             <label>
               What is your name?
               <input
-                placeholder={this.state.user_name}
+                value={this.state.user_name}
                 required
                 onChange={async (e) =>
                   await this.setState({ user_name: e.target.value })} />
@@ -133,7 +133,7 @@ export default class ProfilePage extends Component {
             <label>
               What is your zip code?
               <input
-                placeholder={this.state.zipcode}
+                value={this.state.zipcode}
                 maxLength="5"
                 required
                 onChange={async (e) =>

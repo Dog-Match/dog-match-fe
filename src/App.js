@@ -10,8 +10,9 @@ import ProfilePage from './ProfilePage';
 import ResultsPage from './ResultsPage';
 import AboutPage from './AboutPage';
 import BreedDetailsPage from './BreedDetailsPage';
-import LoginPage from './LoginPage';
-import SignupPage from './SignupPage';
+//import LoginPage from './LoginPage';
+//import SignupPage from './SignupPage';
+import AuthPage from './AuthPage.js';
 import Favorites from './Favorites';
 import './styles/App.css';
 import './styles/NavBar.css';
@@ -72,7 +73,7 @@ export default class App extends Component {
               path="/signup"
               exact
               render={(routerProps) => (
-                <SignupPage
+                <AuthPage
                   handleTokenChange={this.handleTokenChange}
                   {...routerProps}
                 />
@@ -82,7 +83,7 @@ export default class App extends Component {
               path="/login"
               exact
               render={(routerProps) => (
-                <LoginPage
+                <AuthPage
                   handleTokenChange={this.handleTokenChange}
                   {...routerProps}
                 />
