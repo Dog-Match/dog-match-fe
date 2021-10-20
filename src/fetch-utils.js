@@ -33,15 +33,13 @@ export async function updateProfile(state, token){
     .send ({ profile: state })
     .set('Authorization', token);
   return response.body;
-
 }
 
 export async function getFavorites(token) {
   
   const response = await request
     .get(`${URL}api/favorites`)
-    .set('Authorization', token);
-  
+    .set('Authorization', token);  
   return response.body;
 }
 

@@ -28,15 +28,28 @@ export default class App extends Component {
     logout = () => {
       localStorage.clear();
       this.setState({ token: '' });
+      // this.state.history.push('/');
     }
     render() {
       return (
         <div>         
           <Router>
-            <header>
-              <NavLink exact className = 'nav-bar' activeClassName='active-link' to="/">Home</NavLink>
+            <header className='nav-bar'>
+              <NavLink exact activeClassName='active-link' to="/">Profile</NavLink>
+
+              {/* Dummy Link */}
+              <NavLink exact activeClassName='active-link' to="/">Favorites</NavLink>
+
+              {/* Dummy Link */}
+              <NavLink exact activeClassName='active-link' to="/">Matches</NavLink>
+
+              {this.state.token && (
+                <button className="logout-button" onClick={this.logout}>
+								Log Out
+                </button>
+              )}
             </header>
-            
+
             <Switch>
               <Route
                 path="/"
