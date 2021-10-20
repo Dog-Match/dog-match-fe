@@ -12,7 +12,7 @@ import AboutPage from './AboutPage';
 import BreedDetailsPage from './BreedDetailsPage';
 import LoginPage from './LoginPage';
 import SignupPage from './SignupPage';
-import NavBar from './NavBar';
+import Favorites from './Favorites';
 import './styles/App.css';
 
 const TOKEN_KEY = 'TOKEN';
@@ -28,7 +28,7 @@ export default class App extends Component {
     logout = () => {
       localStorage.clear();
       this.setState({ token: '' });
-      // this.state.history.push('/');
+      <Redirect to="/" />;
     }
     render() {
       return (
@@ -36,12 +36,9 @@ export default class App extends Component {
           <Router>
             <header className='nav-bar'>
               <NavLink exact activeClassName='active-link' to="/">Profile</NavLink>
-
-              {/* Dummy Link */}
-              <NavLink exact activeClassName='active-link' to="/">Favorites</NavLink>
-
-              {/* Dummy Link */}
-              <NavLink exact activeClassName='active-link' to="/">Matches</NavLink>
+              <NavLink exact activeClassName='active-link' to="/favorites">Favorites</NavLink>
+              <NavLink exact activeClassName='active-link' to="/results">My Matches</NavLink>
+              <NavLink exact activeClassName='active-link' to="/aboutus">About</NavLink>
 
               {this.state.token && (
                 <button className="logout-button" onClick={this.logout}>
@@ -64,7 +61,11 @@ export default class App extends Component {
               <Route
                 path="/results"
                 exact
-                render={(routerProps) => this.state.token ? <ResultsPage token = {this.state.token}{...routerProps}/> : <Redirect to = "/auth"/> }/>
+                render={(routerProps) => this.state.token ? <ResultsPage token = {this.state.token}{...routerProps}/> : <Redirect to = "/login"/> }/>
+              <Route
+                path="/favorites"
+                exact
+                render={(routerProps) => this.state.token ? <Favorites token = {this.state.token}{...routerProps}/> : <Redirect to = "/login"/> }/>
               <Route
                 path="/aboutus"
                 exact
