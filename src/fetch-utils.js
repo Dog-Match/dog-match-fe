@@ -145,11 +145,12 @@ export async function getRecommendations(token) {
   }
 }
 
-export async function postFavorite(breed, token) {
+export async function postFavorite(breedName, token) {
   const response = await request
     .post(`${URL}api/favorites`)
     .set('Authorization', token)
-    .send(breed);
+    .send({ breed_name: breedName });;
 
   return response;
 }
+
