@@ -14,27 +14,6 @@ html, body {
   margin-right: 5%;
 }
 
-.active-link {
-  /* padding: 10px;
-  background-color: light-grey; */
-}
-
-.nav-bar {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding-bottom: 5px;
-  border-bottom: 1px solid;
-  text-transform: uppercase;
-}
-
-.logout-button {
-  align-self: flex-end;
-  font-size:.85em;
-  width:8%;
-  margin:10px;
-}
-
 .button-container {
   display: flex;
   justify-content: space-between;
@@ -66,6 +45,7 @@ button {
   font-family: 'Ubuntu Mono', monospace;
   padding: 10px;
   letter-spacing: .1em;
+  font-size: 1em;
 }
 
 button:active {
@@ -78,4 +58,10 @@ button:active {
 
 button:hover {
   background-color: lightgrey;
+}
+
+.content {
+  background-color: white;
+  padding: 5%;
+  border-radius: 10px;
 }
