@@ -31,7 +31,7 @@ export default class ResultsPage extends Component {
     } else {
       return (
         <div className="results-page">
-          {breeds.map(breed => <BreedCard {...breed} key={breed.id}/>)}
+          {breeds.map(breed => <BreedCard {...breed} key={breed.id} token={this.props.token}/>)}
         </div>
       );
     }
