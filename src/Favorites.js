@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getFavorites } from './fetch-utils';
 import BreedCard from './components/BreedCard';
+import './styles/Favorites.css';
 export default class Favorites extends Component {
     state = {
       favorites: []
