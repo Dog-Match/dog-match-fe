@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import dog from './img/dogHeart.png';
 import gitcat from './img/github2.png';
 import li from './img/linkedin6.png';
-import './styles/Aboutpage.css';
+import './styles/AboutPage.css';
  
 export default class AboutPage extends Component {
   render() {
