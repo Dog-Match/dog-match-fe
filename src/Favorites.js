@@ -5,8 +5,14 @@ export default class Favorites extends Component {
       favorites: []
     }
     componentDidMount = async () => {
-      const favorites = await getFavorites(this.props.token);
-      this.setState({ favorites });
+      try {
+        const favorites = await getFavorites(this.props.token);
+        this.setState({ favorites });
+      } catch(e) {
+        if(e.message === 'fill out profile first') {
+          this.props.history.push('/noprofile');
+        }
+      }
     }
     render() {
       return (
@@ -18,7 +24,7 @@ export default class Favorites extends Component {
               <p>Bred for: {item.bred_for}</p>
               <p>Life Span: {item.life_span}</p>
               <p>Temperament: {item.temperament}</p>      
-            </div>)}  
+            </div>)}
         </div>
       );
     }

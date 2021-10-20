@@ -6,8 +6,14 @@ export default class BreedDetailsPage extends Component {
     breed: []
   }
   componentDidMount = async () => {
-    const breed = await getBreedByName(this.props.match.params.breed_name, this.props.token);
-    this.setState({ breed });
+    try {
+      const breed = await getBreedByName(this.props.match.params.breed_name, this.props.token);
+      this.setState({ breed });
+    } catch(e) {
+      if(e.message === 'fill out profile first') {
+        this.props.history.push('/noprofile');
+      }
+    }
   }
   render() {
     const breed = this.state.breed;

@@ -12,8 +12,14 @@ export default class ResultsPage extends Component {
 
   
   componentDidMount = async () => {
-    const breeds = await getRecommendations(this.props.token);
-    this.setState({ breeds, loading: false });
+    try {
+      const breeds = await getRecommendations(this.props.token);
+      this.setState({ breeds, loading: false });
+    } catch(e) {
+      if(e.message === 'fill out profile first') {
+        this.props.history.push('/noprofile');
+      }
+    }
   }
 
   render() {
@@ -25,7 +31,7 @@ export default class ResultsPage extends Component {
     } else {
       return (
         <div className="results-page">
-          {breeds.map(breed => <BreedCard {...breed} />)}
+          {breeds.map(breed => <BreedCard {...breed} key={breed.id}/>)}
         </div>
       );
     }

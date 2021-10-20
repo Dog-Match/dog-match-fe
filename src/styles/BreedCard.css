@@ -5,5 +5,9 @@
     margin: 10px;
     padding: 10px;
     max-width: 200px;
-   box-shadow: -5px 5px 0px 0px rgba(0, 0, 255, .2);
+    box-shadow: -5px 5px 0px 0px rgba(0, 0, 255, .2);
+}
+
+.breed-card > img {
+    width: 180px;
 }
