@@ -57,7 +57,7 @@ export default class BreedCard extends Component {
         </ul>
 
         <section className = "links">
-          <button href={adoptionLink}>Adopt This breed</button>
+          <button><a href={adoptionLink}>Adopt This breed</a></button>
           { !this.checkFavorites(name, this.state.favorites) && 
         <button onClick={this.handleFavorite}>Add to Favorites</button>
           }

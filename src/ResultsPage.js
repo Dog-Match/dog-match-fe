@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import BreedCard from './components/BreedCard.js';
 import { getRecommendations } from './fetch-utils.js';
 import './styles/Results.css';
+import './styles/App.css';
 
 export default class ResultsPage extends Component {
 
@@ -26,7 +27,7 @@ export default class ResultsPage extends Component {
     const { loading, breeds } = this.state;
     if (loading) {
       return (
-        <h2>Loading Your Personalized Results...</h2>
+        <h2 className="loading">Loading Your Personalized Results...</h2>
       );
     } else {
       return (

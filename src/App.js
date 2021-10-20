@@ -46,7 +46,7 @@ export default class App extends Component {
             <NavLink exact activeClassName="active-link" to="/results">
               My Matches
             </NavLink>
-            <NavLink exact activeClassName="active-link" to="/aboutus">
+            <NavLink exact activeClassName="active-link" to="/aboutpage">
               About
             </NavLink>
 
