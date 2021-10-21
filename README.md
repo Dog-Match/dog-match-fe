@@ -1,5 +1,5 @@
 ## Dog Match 
-<kbd> Taylor Williams, Amit Sheth, Dylan Floyd, Estefani Baughman </kbd>
+<kbd align="center"> Taylor Williams, Amit Sheth, Dylan Floyd, Estefani Baughman </kbd>
 
 <p align = "center">This project focus is to recommend pets available for adoption based on your individual personality. </br>
 Problem Domain: Dogs and people have different personalities. </br>
@@ -36,7 +36,7 @@ API's used:
 </ul>
 </br>
 Database Schemas:
-</ul>
+<ul>
 <li>SQL deployed through Heroku </li>
 <li>Tables: Users & Favorites </li>
 <li>Data:  Breed Temperaments, Temperament Categories, Users, and Favorites. </li>
