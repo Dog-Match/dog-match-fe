@@ -77,3 +77,8 @@
 .results-button:hover {
     background-color: lightgrey;
 }
+
+.profile-alert {
+    text-align: center;
+    color: rgb(244, 67, 54);
+}

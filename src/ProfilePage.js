@@ -43,7 +43,7 @@ export default class ProfilePage extends Component {
     return (
       <div className='content'>
         {this.props.alert ?
-          <h2>Please Fill This Out</h2> :
+          <h2 className="profile-alert">Please Answer All Questions Before Continuing</h2> :
           <></>
         }
         <header className="profile-header">
