@@ -53,7 +53,9 @@
 }
 
 .results-button-container {
-
+    display: flex;
+    justify-content: flex-end;
+    margin: 15px;
 }
 
 .results-button {
