@@ -22,9 +22,8 @@ export default class LoginPage extends Component {
       return (
         <div>
           <header className='login-header'>
-            <h1>Dog Match App Title</h1>
+            <h1>Dog Match</h1>
             <img src={ foodBowl } alt="paw logo"/><br/>
-            hingamajig the doggo matcher
           </header>
           <section className='login-container'>
             <form onSubmit={this.handleSubmit} className='login-form'>
