@@ -7,22 +7,22 @@ export default class BreedCard extends Component {
   state = {
     favorites: []
   }
+  
   componentDidMount = async () => {
     const favorites = await getFavorites(this.props.token);
     this.setState({ favorites });
   }
+
   handleFavorite = async () => {
     await postFavorite(this.props.name, this.props.token);
     const favorites = await getFavorites(this.props.token);
     this.setState({ favorites });
-    console.log(this.state.favorites);
   }
 
   handleDelete = async () => {
     await deleteFavorite(this.props.name, this.props.token);
     const favorites = await getFavorites(this.props.token);
     this.setState({ favorites });
-    console.log(this.state.favorites);
   }
 
   checkFavorites = (name, favoritesArr) => {
