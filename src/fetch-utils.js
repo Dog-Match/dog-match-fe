@@ -76,7 +76,7 @@ export async function signUp(email, password) {
 
 */
 
-// Get Profile
+// GET Profile
 export async function getProfile(token) {
   const response = await request
     .get(`${URL}api/profile`)
@@ -84,7 +84,7 @@ export async function getProfile(token) {
   return response.body;
 }
 
-// Update Profile
+// PUT (Update) Profile
 export async function updateProfile(state, token) {
   const response = await request
     .put(`${URL}api/profile`)
@@ -93,6 +93,7 @@ export async function updateProfile(state, token) {
   return response.body;
 }
 
+// GET Favorites
 export async function getFavorites(token) {
   try {
     const response = await request
@@ -110,6 +111,7 @@ export async function getFavorites(token) {
   }
 }
 
+// GET Breed
 export async function getBreedByName(breed, token) {
   try {
     const response = await request
@@ -128,6 +130,7 @@ export async function getBreedByName(breed, token) {
   }
 }
 
+// GET Recommendations
 export async function getRecommendations(token) {
   try {
     const response = await request
@@ -146,6 +149,7 @@ export async function getRecommendations(token) {
   }
 }
 
+// POST Favorite
 export async function postFavorite(breedName, token) {
   const response = await request
     .post(`${URL}api/favorites`)
@@ -155,6 +159,7 @@ export async function postFavorite(breedName, token) {
   return response;
 }
 
+// DELETE Favorite
 export async function deleteFavorite(breedName, token) {
   const response = await request
     .delete(`${URL}api/favorites/${breedName}`)

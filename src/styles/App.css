@@ -4,7 +4,7 @@
 font-family: 'Ubuntu Mono', monospace; */
 
 body {
-  background-color: rgba(202,232,252, .25);
+  background-color: rgba(202,232,252, 1);
 }
 
 html, body {
@@ -56,9 +56,7 @@ button {
 button:active {
   box-shadow: -5px 5px 0px 0px rgba(0, 0, 255, .2);
   background-color: grey;
-  border-radius:  5px;
   color:white;
-  padding: 10px;
 }
 
 button:hover {
@@ -69,14 +67,17 @@ button:hover {
   background-color:rgba(255, 255, 255, 1);
   padding: 5%;
   border-radius: 10px;
+
 }
 
 .loading {
   padding:20px;
   display: flex;
   justify-content: center;
-  border: 1px solid black;
   align-items: center;
+  border: 1px solid black;
+  border-radius: 5px;;
+  font-family: 'Ubuntu Mono', monospace;
   box-shadow: -5px 5px 0px 0px rgba(0, 0, 255, .2);
   background-color: white;
   -webkit-animation-name: hvr-hang-sink, hvr-hang;

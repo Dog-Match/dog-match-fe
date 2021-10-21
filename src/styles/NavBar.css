@@ -16,10 +16,6 @@
     font-weight: bold;
   }
   
-  .nav-bar button {
-    font-size: .65em;
-  }
-  
   .nav-bar a {
     padding: 10px;
   
@@ -39,7 +35,6 @@
   
   .logout-button {
     align-self: flex-end;
-    width:8%;
+    width:100px;
     margin:10px;
-    font-size: 1em;
   }

@@ -291,9 +291,7 @@ export default class ProfilePage extends Component {
                 <option value="1">No</option>
               </select>
             </label>
-            <div className="results-button-container">
-              <button className="results-button"> Get Results!</button>
-            </div>
+            <button className="results-button"> Get Results!</button>
           </form>
 
         </section>
