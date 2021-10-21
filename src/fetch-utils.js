@@ -93,24 +93,6 @@ export async function updateProfile(state, token) {
   return response.body;
 }
 
-// GET Favorites
-export async function getFavorites(token) {
-  try {
-    const response = await request
-      .get(`${URL}api/favorites`)
-      .set('Authorization', token);
-    return response.body;
-  } catch (e) {
-    if (e.response.body &&
-      e.response.body.error &&
-      e.response.body.error === 'fill out profile first') {
-      throw new Error('fill out profile first');
-    } else {
-      console.log(e);
-    }
-  }
-}
-
 // GET Breed
 export async function getBreedByName(breed, token) {
   try {
@@ -157,6 +139,24 @@ export async function postFavorite(breedName, token) {
     .send({ breed_name: breedName });
 
   return response;
+}
+
+// GET Favorites
+export async function getFavorites(token) {
+  try {
+    const response = await request
+      .get(`${URL}api/favorites`)
+      .set('Authorization', token);
+    return response.body;
+  } catch (e) {
+    if (e.response.body &&
+      e.response.body.error &&
+      e.response.body.error === 'fill out profile first') {
+      throw new Error('fill out profile first');
+    } else {
+      console.log(e);
+    }
+  }
 }
 
 // DELETE Favorite
