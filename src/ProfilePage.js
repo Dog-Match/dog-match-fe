@@ -28,11 +28,11 @@ export default class ProfilePage extends Component {
     const { token } = this.props;
     const profile = await getProfile(token);
     this.setState({ ...profile[0] });
-    console.log(profile, 'profile', this.state);
   };
 
   handleSubmit = async (e) => {
     e.preventDefault();
+
     // Still need to Get Fresh Dog Rexxx
     await updateProfile(this.state, this.props.token);
     this.props.history.push('/results');
@@ -286,7 +286,6 @@ export default class ProfilePage extends Component {
                 required
                 onChange={async (e) =>
                   await this.setState({ protective_breed: Number(e.target.value) })} >
-
                 <option value="2">Yes</option>
                 <option value="1">No</option>
               </select>
