@@ -22,7 +22,7 @@
   
   .nav-bar a {
     padding: 10px;
-  
+    border: 1px solid rgba(0, 0, 0, 0);
   }
   
   .nav-bar a:hover{
