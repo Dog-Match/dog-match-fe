@@ -1,6 +1,6 @@
 import request from 'superagent';
-const URL = 'https://dog-match-be.herokuapp.com/';
-//const URL = 'http://localhost:7890/';
+//const URL = 'https://dog-match-be.herokuapp.com/';
+const URL = 'http://localhost:7890/';
 
 
 function evaluateAuthError(errorMessage, result) {
@@ -118,14 +118,14 @@ export async function getBreedByName(breed, token) {
       .get(`${URL}api/breed-details/${breed}`)
       .set('Authorization', token);
 
-    return response;
+    return response.body;
   } catch (e) {
     if (e.response.body &&
       e.response.body.error &&
       e.response.body.error === 'fill out profile first') {
       throw new Error('fill out profile first');
     } else {
-      console.log(e);
+      
     }
   }
 }
@@ -166,4 +166,15 @@ export async function deleteFavorite(breedName, token) {
     .set('Authorization', token);
 
   return response;
+}
+
+export async function getGitBreedInfo(breedName, token) {
+  try {
+    const response = await request
+      .get(`${URL}api/search-breeds?q=${breedName}`)
+      .set('Authorization', token);
+    return response.body;
+  }catch (e) {
+    console.log(e);
+  }
 }

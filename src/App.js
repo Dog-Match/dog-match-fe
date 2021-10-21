@@ -117,9 +117,9 @@ export default class App extends Component {
               render={(routerProps) => <AboutPage token={this.state.token}{...routerProps} />}
             />
             <Route
-              path="/breed"
+              path="/breed/:breed_name"
               exact
-              render={(routerProps) => <BreedDetailsPage {...routerProps} />}
+              render={(routerProps) => <BreedDetailsPage {...routerProps} token={this.state.token}/>}
             />
             <Route
               path="/noprofile"
