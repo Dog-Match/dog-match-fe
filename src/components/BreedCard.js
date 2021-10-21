@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { deleteFavorite, getFavorites, postFavorite } from '../fetch-utils';
 import '../styles/BreedCard.css';
 import heart from '../img/heart.png';
-
+import { Link } from 'react-router-dom';
 export default class BreedCard extends Component {
   state = {
     favorites: []
@@ -43,7 +43,9 @@ export default class BreedCard extends Component {
         
         <h3>{name}</h3>
         {this.checkFavorites(name, this.state.favorites) && <img className="heart" src={ heart } alt="Heart" />}
-        <img className='card-dogimage' src={imgUrl} alt={'a ' + name} />
+        <Link to={`/breed/${this.props.name}`}>
+          <img className='card-dogimage' src={imgUrl} alt={'a ' + name} />
+        </Link>
         <ul>
           <section className = "breed-stats">
             <li>Weight: {weight}</li>
