@@ -16,7 +16,7 @@
     align-items: center;
 }
 
-img {
+.dog-pics img {
     height: 120px;
     border-radius: 5px;
     box-shadow: -5px 5px 0px 0px rgba(0, 0, 255, .2);
