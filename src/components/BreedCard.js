@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { deleteFavorite, getFavorites, postFavorite } from '../fetch-utils';
 import '../styles/BreedCard.css';
+import heart from '../img/heart.png';
 
 export default class BreedCard extends Component {
   state = {
@@ -14,7 +15,6 @@ export default class BreedCard extends Component {
     await postFavorite(this.props.name, this.props.token);
     const favorites = await getFavorites(this.props.token);
     this.setState({ favorites });
-    alert('This breed has been added to your favorites');
     console.log(this.state.favorites);
   }
 
@@ -22,7 +22,6 @@ export default class BreedCard extends Component {
     await deleteFavorite(this.props.name, this.props.token);
     const favorites = await getFavorites(this.props.token);
     this.setState({ favorites });
-    alert('This breed has been removed from your favorites');
     console.log(this.state.favorites);
   }
 
@@ -41,8 +40,10 @@ export default class BreedCard extends Component {
     
     return (
       <div className="breed-card">
+        
         <h3>{name}</h3>
-        <img src={imgUrl} alt={'a ' + name} />
+        {this.checkFavorites(name, this.state.favorites) && <img className="heart" src={ heart } alt="Heart" />}
+        <img className='card-dogimage' src={imgUrl} alt={'a ' + name} />
         <ul>
           <section className = "breed-stats">
             <li>Weight: {weight}</li>
