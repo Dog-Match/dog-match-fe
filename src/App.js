@@ -40,11 +40,11 @@ export default class App extends Component {
             <NavLink exact activeClassName="active-link" to="/">
               Profile
             </NavLink>
-            <NavLink exact activeClassName="active-link" to="/favorites">
-              Favorites
-            </NavLink>
             <NavLink exact activeClassName="active-link" to="/results">
               My Matches
+            </NavLink>
+            <NavLink exact activeClassName="active-link" to="/favorites">
+              Favorites
             </NavLink>
             <NavLink exact activeClassName="active-link" to="/aboutpage">
               About
