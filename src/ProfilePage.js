@@ -47,7 +47,7 @@ export default class ProfilePage extends Component {
           <></>
         }
         <header className="profile-header">
-          <h1>Hello, {this.state.user_name}!</h1>
+          <h1>Hello {this.state.user_name}!</h1>
           <img className="user-icon" src={icon} alt="user icon" />
         </header>
 
@@ -292,7 +292,7 @@ export default class ProfilePage extends Component {
               </select>
             </label>
             <div className="results-button-container">
-              <button className="results-button"> Get Results!</button>
+              <button className="results-button">Get Results!</button>
             </div>
           </form>
 

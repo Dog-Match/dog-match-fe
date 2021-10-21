@@ -16,13 +16,11 @@
     font-weight: bold;
   }
   
-  .nav-bar button {
-    font-size: .65em;
-  }
-  
   .nav-bar a {
+    padding: 10px;  
     padding: 10px;
     border: 1px solid rgba(0, 0, 0, 0);
+
   }
   
   .nav-bar a:hover{
@@ -39,7 +37,6 @@
   
   .logout-button {
     align-self: flex-end;
-    width:8%;
+    width:100px;
     margin:10px;
-    font-size: 1em;
   }
