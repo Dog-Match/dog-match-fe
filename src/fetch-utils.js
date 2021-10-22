@@ -2,7 +2,6 @@ import request from 'superagent';
 const URL = 'https://dog-match-be.herokuapp.com/';
 //const URL = 'http://localhost:7890/';
 
-
 function evaluateAuthError(errorMessage, result) {
   if (errorMessage === 'email or password incorrect') {
     result.badCreds = true;
@@ -57,25 +56,6 @@ export async function signUp(email, password) {
   return result;
 }
 
-/*
-// Login
-export async function login(email, password) {
-  const response = await request
-    .post(`${URL}auth/signin`)
-    .send({ email, password });
-  return response.body;
-}
-
-// Sign Up
-export async function signUp(email, password) {
-  const response = await request
-    .post(`${URL}auth/signup`)
-    .send({ email, password });
-  return response.body;
-}
-
-*/
-
 // GET Profile
 export async function getProfile(token) {
   const response = await request
@@ -107,7 +87,7 @@ export async function getBreedByName(breed, token) {
       e.response.body.error === 'fill out profile first') {
       throw new Error('fill out profile first');
     } else {
-      
+
     }
   }
 }
@@ -174,7 +154,7 @@ export async function getGitBreedInfo(breedName, token) {
       .get(`${URL}api/search-breeds?q=${breedName}`)
       .set('Authorization', token);
     return response.body;
-  }catch (e) {
+  } catch (e) {
     console.log(e);
   }
 }

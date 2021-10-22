@@ -39,7 +39,6 @@ export default class ProfilePage extends Component {
   };
 
   render() {
-    console.log(this.state, 'state');
     return (
       <div className='content'>
         {this.props.alert ?

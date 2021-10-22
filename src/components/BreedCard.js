@@ -4,10 +4,11 @@ import '../styles/BreedCard.css';
 import heart from '../img/heart.png';
 import { Link } from 'react-router-dom';
 export default class BreedCard extends Component {
+  
   state = {
     favorites: []
   }
-  
+
   componentDidMount = async () => {
     const favorites = await getFavorites(this.props.token);
     this.setState({ favorites });
@@ -37,36 +38,34 @@ export default class BreedCard extends Component {
     const temperaments = this.props.temperament;
     const imgUrl = this.props.imgUrl;
     const adoptionLink = this.props.adoptionLink;
-    
+
     return (
       <div className="breed-card">
-        
+
         <h3>{name}</h3>
-        {this.checkFavorites(name, this.state.favorites) && <img className="heart" src={ heart } alt="Heart" />}
+        {this.checkFavorites(name, this.state.favorites) && <img className="heart" src={heart} alt="Heart" />}
         <Link to={`/breed/${this.props.name}`}>
           <img className='card-dogimage' src={imgUrl} alt={'a ' + name} />
         </Link>
         <ul>
-          <section className = "breed-stats">
+          <section className="breed-stats">
             <li>Weight: {weight}</li>
             <li>Height: {height}</li>
             <li>Life Span: {lifeSpan}</li>
           </section>
 
-          <section className = "personality">
-            <span className = "personality-head">Personality Traits:</span>
+          <section className="personality">
+            <span className="personality-head">Personality Traits:</span>
             <li>{temperaments}</li>
           </section>
         </ul>
 
-        <section className = "links">
+        <section className="links">
           <button><a href={adoptionLink} target="_blank" rel="noreferrer">Adopt This breed</a></button>
-          { !this.checkFavorites(name, this.state.favorites) && 
-        <button onClick={this.handleFavorite}>Add to Favorites</button>
-          }
-          { this.checkFavorites(name, this.state.favorites) && 
-          <button onClick={this.handleDelete}>Remove from Favorites</button>
-          }
+          {!this.checkFavorites(name, this.state.favorites) &&
+            <button onClick={this.handleFavorite}>Add to Favorites</button>}
+          {this.checkFavorites(name, this.state.favorites) &&
+            <button onClick={this.handleDelete}>Remove from Favorites</button>}
         </section>
       </div>
     );
