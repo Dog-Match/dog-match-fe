@@ -46,9 +46,8 @@ export default class BreedCard extends Component {
       <div className="breed-card">
 
         <h3>{name}</h3>
-        {this.checkFavorites(name, this.state.favorites) ?
-          <img className="heart" src={heart} alt="Heart" /> :
-          <div className="no-heart" />  
+        {this.checkFavorites(name, this.state.favorites) &&
+          <img className="heart" src={heart} alt="Heart" />
         }
         <Link to={`/breed/${this.props.name}`}>
           <img className='card-dogimage' src={imgUrl} alt={'a ' + name} />
