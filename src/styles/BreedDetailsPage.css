@@ -7,17 +7,20 @@
     border: 1px solid black;
     border-radius: 10px;
     margin: 10px;
-    padding: 15px;
+    padding: 20px;
     box-shadow: -5px 5px 0px 0px rgba(0, 0, 255, .2);
+    width: 600px;
 }
+
 .dog-pics {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.dog-pics img {
-    height: 120px;
+.big-dog-pic {
+    height: 180px;
+    border: 1px solid black;
     border-radius: 5px;
     box-shadow: -5px 5px 0px 0px rgba(0, 0, 255, .2);
     margin: 10px;
@@ -33,20 +36,10 @@ h3 {
     font-size: 1.5em;
 }
 
-
-ul  {
-    list-style: none;
-    list-style-position: outside;
-    font-size: .85em;
-    line-height: 1.5em;
-    margin-left: 0;
-    padding-left: 0;
-}
-
-.breed-stats {
+.details-breed-stats {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     line-height: 1.85em;
     font-size: 1.1em;
@@ -54,9 +47,8 @@ ul  {
     padding-bottom: 10px;
 }
 
-.personality {
-    padding-bottom: 5px;
-    height:85px;
+.details-traits {
+    padding: 10px 0px;
 }
 
 .personality-head {
@@ -69,11 +61,24 @@ ul  {
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
-.links button{
+.links button {
     margin: 5px;
     width: 150px;
     font-size: .85em;
+}
+
+.details-two-col {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.details-center-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
 }

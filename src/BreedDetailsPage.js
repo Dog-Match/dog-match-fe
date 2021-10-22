@@ -7,7 +7,6 @@ export default class BreedDetailsPage extends Component {
   state = {
     breed: [],
     gitBreed: []
-
   }
 
   componentDidMount = async () => {
@@ -19,21 +18,48 @@ export default class BreedDetailsPage extends Component {
   }
 
   render() {
+    const {
+      name,
+      weight,
+      height,
+      imgUrl: img1,
+      life_span: lifeSpan,
+      temperament: temperaments,
+      breed_group
+    } = this.state.breed;
+
+    const {
+      description,
+      image: img2
+    } = this.state.gitBreed;
+
     return (
-      <div className='details-card'>
-        <div className='breed-info' >
-          <p>Name: {this.state.breed.name}</p>
+      <div className="details-center-div">
+        <div className='details-card'>
+          <h2>{name}</h2>
           <section className='dog-pics'>
-            <img src={this.state.breed.imgUrl} alt={this.state.breed.name} />
-            <img src={this.state.gitBreed.image} alt={this.state.breed.name} />
+            <img src={img1} alt={this.state.breed.name} className="big-dog-pic" />
+            <img src={img2} alt={this.state.breed.name} className="big-dog-pic" />
           </section>
-          <p>Bred For: {this.state.breed.bred_for}</p>
-          <p>Breed Group: {this.state.breed.breed_group}</p>
-          <p>Life Span: {this.state.breed.life_span}</p>
-          <p>Temperament: {this.state.breed.temperament}</p>
-          <p>Height: {this.state.breed.height}</p>
-          <p>Weight: {this.state.breed.weight}</p>
-          <p>Description: {this.state.gitBreed.description}</p>
+          <p>{description}</p>
+          <div className="details-two-col">
+            <div className="details-breed-stats">
+              <span className="personality-head">Personality Traits:</span>
+              <div>{temperaments}</div>
+
+            </div>
+            <div className="details-breed-stats">
+              <span className="personality-head">Stats:</span>
+              <div>Weight: {weight}</div>
+              <div>Height: {height}</div>
+              <div>Life Span: {lifeSpan}</div>
+              <div>Breed Group: {breed_group}</div>
+            </div>
+          </div>
+          <section className="details-traits">
+          </section>
+          <section className="breed-stats">
+          </section>
         </div>
       </div>
     );
