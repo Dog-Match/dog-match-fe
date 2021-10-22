@@ -49,7 +49,7 @@ export default class AboutPage extends Component {
           <h1>Amit Sheth</h1>
           <img src={ bulldog } alt="bulldog" className="doggieA"/>
           <h3>Houston, Texas</h3>
-          <h4>Favorite Breed: Burmese Mountain Dog</h4>
+          <h4>Favorite Breed: Bernese Mountain Dog</h4>
           <section className ="icon-container" >
             <a href="https://github.com/AmitSheth9" className="icon">
               <img src={ gitcat } alt="Github"/>
