@@ -4,7 +4,7 @@ import '../styles/BreedCard.css';
 import heart from '../img/heart.png';
 import { Link } from 'react-router-dom';
 export default class BreedCard extends Component {
-  
+
   state = {
     favorites: []
   }
@@ -30,6 +30,10 @@ export default class BreedCard extends Component {
     return favoritesArr.find(favorite => favorite.name === name);
   }
 
+  openAdoptionTab = () => {
+    window.open(this.props.adoptionLink);
+  }
+
   render() {
     const name = this.props.name;
     const weight = this.props.weight.imperial + ' pounds.';
@@ -37,13 +41,15 @@ export default class BreedCard extends Component {
     const lifeSpan = this.props.life_span;
     const temperaments = this.props.temperament;
     const imgUrl = this.props.imgUrl;
-    const adoptionLink = this.props.adoptionLink;
 
     return (
       <div className="breed-card">
 
         <h3>{name}</h3>
-        {this.checkFavorites(name, this.state.favorites) && <img className="heart" src={heart} alt="Heart" />}
+        {this.checkFavorites(name, this.state.favorites) ?
+          <img className="heart" src={heart} alt="Heart" /> :
+          <div className="no-heart" />  
+        }
         <Link to={`/breed/${this.props.name}`}>
           <img className='card-dogimage' src={imgUrl} alt={'a ' + name} />
         </Link>
@@ -61,7 +67,7 @@ export default class BreedCard extends Component {
         </ul>
 
         <section className="links">
-          <button><a href={adoptionLink} target="_blank" rel="noreferrer">Adopt This breed</a></button>
+          <button onClick={this.openAdoptionTab}>Adopt This breed</button>
           {!this.checkFavorites(name, this.state.favorites) &&
             <button onClick={this.handleFavorite}>Add to Favorites</button>}
           {this.checkFavorites(name, this.state.favorites) &&
