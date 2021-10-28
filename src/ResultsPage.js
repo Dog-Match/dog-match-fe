@@ -17,6 +17,7 @@ export default class ResultsPage extends Component {
       const breeds = await getRecommendations(this.props.token);
       this.setState({ breeds, loading: false });
     } catch(e) {
+      // nice! it can get confusing passing custom error messages to the front end like this, so nice job. I would like to see this set into state then displayed to the user, though
       if(e.message === 'fill out profile first') {
         this.props.history.push('/noprofile');
       }

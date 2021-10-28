@@ -13,7 +13,7 @@ export default class LoginPage extends Component {
     noCreds: false,
     error: false,
     emailTaken: false,
-    validEmail: true
+    invalidEmail: false // I would keep this key as a 'negative' to fit with the others
   }
 
   handleAuthResult(result) {
@@ -27,14 +27,14 @@ export default class LoginPage extends Component {
   }
   handleSignIn = async (e) => {
     const { email, password, validEmail } = this.state;
-    if (!validEmail) return;
+    if (invalidEmail) return;
     const result = await signIn(email, password);
     this.handleAuthResult(result);
   }
 
   handleSignUp = async (e) => {
     const { email, password, validEmail } = this.state;
-    if (!validEmail) return;
+    if (invalidEmail) return;
     const result = await signUp(email, password);
     this.handleAuthResult(result);
   }
@@ -50,8 +50,8 @@ export default class LoginPage extends Component {
 
   handleEmailChange = (e) => {
     const input = e.target.value;
-    const validEmail = email.isValid(input);
-    this.setState({ email: input, validEmail });
+    const validEmail = email.isValid(input); // woah! not sure what's happening here. does isValid just live on the String object in javascript, then looks at the input to decide how to validate it??
+    this.setState({ email: input, invalidEmail: !validEmail });
     this.clearErrorState();
   }
 
@@ -64,24 +64,34 @@ export default class LoginPage extends Component {
     const {
       error,
       badCreds,
-      validEmail,
+      invalidEmail,
       noCreds,
       emailTaken
     } = this.state;
-    let string = '\u00a0\u00a0'; //makes react render white space
-    if (noCreds) string = 'Please Enter Your Email and Password';
-    if (badCreds) string = 'Incorrect Email or Password';
-    if (error) string = 'Network Error';
-    if (!validEmail) string = 'Invalid Email';
-    if (emailTaken) string = 'Email In Use, Please Log In';
-    return string;
+
+    // kind of doing a lot here, but I'm trying to destructure the key out of the [key, value] array that is found in this Object.entries, to get the key of the erro message whose value is true. Then I use this key below to get the right message from the object. Might be a bit much, and in retrospect, probably not better than your more intuitive solution. But hey, kind of neat, right?!
+    const [errorTypeKey] = Object
+      .entries(this.state)
+      .find(([key, value]) => value === true);
+
+    // might be nice to use an object here instead of a string of conditions if you're sure you'll only get more than one error
+    const messages = {
+      noCreds: 'Please Enter Your Email and Password',
+      badCreds: 'Incorrect Email or Password',
+      error: 'Network Error',
+      invalidEmail: 'Invalid Email',
+      emailTaken: 'Email In Use, Please Log In',
+    }
+
+    return messages[errorTypeKey] || '\u00a0\u00a0';
   }
 
-  render() {
+ {
     const {
       email,
       password,
     } = this.state;
+
     const errorString = this.getErrorString();
     
     return (

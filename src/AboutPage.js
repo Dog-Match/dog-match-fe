@@ -11,7 +11,7 @@ export default class AboutPage extends Component {
   render() {
     return (
       <div className = "large-container">
-
+      {/* Probably would have been nice to store this data elsewhere and map over it (maybe even making an <AboutItem /> comoponent), since there's so much repetition and it would be easy to make a typo */}
         {/* Taylor Bio Card */}
         <div className = "medium-container">
           <h1>Taylor Williams</h1>
