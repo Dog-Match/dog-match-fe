@@ -14,6 +14,7 @@ export default class Favorites extends Component {
       const favorites = await getFavorites(this.props.token);
       this.setState({ favorites, loading: false });
     } catch (e) {
+      // same here, it would be nice to display this message to the user
       if (e.message === 'fill out profile first') {
         this.props.history.push('/noprofile');
       }
@@ -29,7 +30,10 @@ export default class Favorites extends Component {
     } else {
       return (
         <div className='favorites-page'>
-          {this.state.favorites.map(favorite => <BreedCard {...favorite} key={favorite.id} token={this.props.token} />)}
+          {this.state.favorites.map(favorite => <BreedCard 
+            {...favorite} /* nice prop spreadin'! */
+            key={favorite.id} 
+            token={this.props.token} />)}
         </div>
       );
     }

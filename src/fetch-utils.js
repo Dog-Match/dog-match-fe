@@ -15,14 +15,16 @@ function evaluateAuthError(errorMessage, result) {
   return result;
 }
 
+const initialResult = {
+  badCreds: false,
+  noCreds: false,
+  error: false,
+  emailTaken: false,
+  token: undefined
+};
+
 export async function signIn(email, password) {
-  let result = {
-    badCreds: false,
-    noCreds: false,
-    error: false,
-    emailTaken: false,
-    token: undefined
-  };
+  let result = { ...initialResult }
   let response = null;
   try {
     response = await request
@@ -37,12 +39,7 @@ export async function signIn(email, password) {
 }
 
 export async function signUp(email, password) {
-  let result = {
-    badCreds: false,
-    noCreds: false,
-    error: false,
-    token: undefined
-  };
+  let result = { ...initialResult }
   let response = null;
   try {
     response = await request
@@ -103,6 +100,7 @@ export async function getRecommendations(token) {
   } catch (e) {
     if (e.response.body &&
       e.response.body.error &&
+      // seeing this magic string floating around in 10 places in your app. Probably would be a good idea to storie it in a const somewhere
       e.response.body.error === 'fill out profile first') {
       throw new Error('fill out profile first');
     } else {
