@@ -10,8 +10,6 @@ import ProfilePage from './ProfilePage';
 import ResultsPage from './ResultsPage';
 import AboutPage from './AboutPage';
 import BreedDetailsPage from './BreedDetailsPage';
-//import LoginPage from './LoginPage';
-//import SignupPage from './SignupPage';
 import AuthPage from './AuthPage.js';
 import Favorites from './Favorites';
 import './styles/App.css';
